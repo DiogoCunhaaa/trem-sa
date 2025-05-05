@@ -1,0 +1,38 @@
+.botao {
+    width: 90%;
+    height:10.188rem ;
+    border-radius:15px ;
+    font-family: Arial, sans-serif; 
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400px;
+    font-style: normal;
+    color: white;
+    border: none;
+    margin: 10px 0;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.13);
+    transition: 
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    will-change: transform, box-shadow; 
+}
+
+.btnTitulo {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.botao:hover {
+    transform: scale(1.03) translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+
+@media (max-width: 600px) {
+    .botao {
+        font-size: 0.9em;
+        padding: 0.8em 1.5em;
+    }
+  }
