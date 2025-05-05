@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <Navbar title={currentTitle} />
+      <Navbar className="navbar" title={currentTitle} />
       <Routes>
         <Route
           path="/"
