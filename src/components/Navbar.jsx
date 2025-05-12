@@ -1,24 +1,30 @@
-import styles from './Navbar.modules.css'
+import { useLocation, useNavigate } from "react-router-dom"
 
 function Navbar (props) {
+    const navigate = useNavigate();
+    const location = useLocation();
+
     return (
-        <div>
-            <div className="row">
-                <div className="col-12">
-                <nav className={styles.Navbar}
-                style={{
-                    backgroundImage: `url(${props.imageUrl})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    color: `${props.corTexto}`
-                }}>
-                   
-                    <div><h1>{props.title}</h1></div>
-                    <div><button><i class="bi bi-arrow-left"></i></button></div>
-                </nav> 
-                </div>
-            </div>  
-        </div>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <a href="#" className="navbar-brand px-3 fs-3" style={{
+                color: `${props.corTexto}`
+            }}>
+                {props.title}
+            </a>
+
+            {location.pathname !== '/' && (
+                <button
+                    className="btn btn-link"
+                    onClick={() => navigate(-1)}
+                    aria-label="Voltar"
+                >
+                <i
+                    className="bi bi-arrow-left-short fs-1"
+                    style={{ color: 'black' }}
+                ></i>
+                </button>
+            )}
+        </nav>
     )
 }
 

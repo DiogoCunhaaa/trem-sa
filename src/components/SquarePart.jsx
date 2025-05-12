@@ -6,7 +6,8 @@ function SquarePart(props) {
       <div
         className={styles.square}
         style={{
-          backgroundColor: props.backgroundColor,
+          backgroundColor: `${props.backgroundColor}`,
+          color: `${props.corTexto}`
         }}
       >
         <h1 className={styles.title}>{props.title}</h1>
