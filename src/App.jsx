@@ -25,11 +25,10 @@ function App() {
 
   return (
     <>
-    <div className="container">
-      <Navbar className="navbar" 
-      title={currentTitle} 
-      imageUrl={'https://i.pinimg.com/736x/14/d7/df/14d7df61dc1701521d25761a48dab232.jpg'}
-      corTexto={'white'}
+    <div>
+      <Navbar
+      title={currentTitle}
+      corTexto={'dark'}
       />
     </div>
       <Routes>
