@@ -8,7 +8,7 @@ function RectanglePart(props) {
                     backgroundColor: props.backgroundColor,
                 }}
                 >
-                    <h1 className={`fs-5 fw-bold {styles.title}`} style={{
+                    <h1 className={`fs-5 fw-bold ${styles.title}`} style={{
                         color: `${props.corTexto}`
                     }}>
                         {props.title}</h1>

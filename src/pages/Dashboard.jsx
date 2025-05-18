@@ -3,7 +3,7 @@ import RectanglePart from '../components/RectanglePart';
 
 function Dashboard() {
   return (
-    <>
+    <div style={{backgroundColor: '#FBFCF8'}}>
     <div className="container">
       <div className="row mt-3">
         <div className="col-6">
@@ -34,7 +34,7 @@ function Dashboard() {
         </div>
       </div>
     </div>
-    </>
+    </div>
   );
 }
 
