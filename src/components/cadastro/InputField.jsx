@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import styles from './InputField.module.css'
 
 function InputField({ whatFor, whatValue, onChange, password = false }) {

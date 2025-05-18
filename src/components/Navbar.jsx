@@ -5,9 +5,9 @@ function Navbar (props) {
     const location = useLocation();
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#f5f5f5'}}>
             <a href="#" className="navbar-brand px-3 fs-3" style={{
-                color: `${props.corTexto}`
+                color: `${props.corTexto}`,
             }}>
                 {props.title}
             </a>

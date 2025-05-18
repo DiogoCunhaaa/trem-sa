@@ -1,9 +1,8 @@
 .customInput {
-  background-color: #e0e0e0;
+  background-color: #d9d9d9;
   border: none;
   border-radius: 50px;
   padding: 10px 20px;
-  
   display: flex;
   align-items: center;
   gap: 10px;
@@ -19,7 +18,7 @@
 }
 
 .iconCircle {
-  background-color: #bdbdbd;
+  background-color: #b8b8b8;
   border-radius: 50%;
   width: 35px;
   height: 35px;
@@ -29,5 +28,5 @@
 }
 
 .iconCircle i {
-  color: white;
+  color: black;
 }

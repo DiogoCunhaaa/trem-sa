@@ -1,0 +1,10 @@
+.customButton {
+  background-color: #979797;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}

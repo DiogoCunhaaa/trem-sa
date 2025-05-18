@@ -4,7 +4,7 @@ import HomeButton from '../components/HomeButton';
 function Dashboard() {
 
   return (
-    <div>
+    <div style={{backgroundColor: '#FBFCF8'}}>
       <div className='App'>
         <HomeButton 
         imageUrl='https://i.pinimg.com/736x/14/d7/df/14d7df61dc1701521d25761a48dab232.jpg' 
