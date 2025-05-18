@@ -8,6 +8,7 @@ import Manutencao from './pages/Manutencao';
 import Relatorios from './pages/Relatorios';
 import Alertas from './pages/Alertas';
 import HomeMenu from './components/HomeMenu';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   const location = useLocation();
@@ -19,6 +20,7 @@ function App() {
     '/manutencao': 'Manutenção',
     '/relatorios': 'Relatórios e Análises',
     '/alertas': 'Alertas e Notificações',
+    '/loginpage': 'Login'
   }
 
   const currentTitle = pageTitles[location.pathname] || 'Pagina';
@@ -45,6 +47,7 @@ function App() {
         <Route path="/manutencao" element={<Manutencao />} />
         <Route path="/relatorios" element={<Relatorios />} />
         <Route path="/alertas" element={<Alertas />} />
+        <Route path="/loginpage" element={<LoginPage />} />
       </Routes>
     </>
   );

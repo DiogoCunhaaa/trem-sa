@@ -16,7 +16,6 @@ function RectanglePart(props) {
                     <p className={styles.data}>21 Jan,2025 <i className="bi bi-train-front"></i></p> <h1 className={styles.abertura}>22 Jan,2025 <i className="bi bi-train-front"></i></h1>
                     <hr />
                     <div>
-                        
                     </div>
                 </div>
             
