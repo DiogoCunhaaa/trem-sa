@@ -37,6 +37,7 @@ hr {
     height: 5px;
     width: 25%;
     background-color: black;
+    border-radius: 10px;
   }
 
 @media screen and (min-width: 768px) {
