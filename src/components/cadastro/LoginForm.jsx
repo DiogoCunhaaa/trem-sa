@@ -31,6 +31,14 @@ function LoginForm() {
 
     return(
         <div className="container">
+
+            <div>
+                <img src='/favicon.ico' className="mx-auto mt-5 d-block shadow-sm rounded-circle" alt="icone" width={'200px'} height={'200px'}/>
+            </div>
+            <div className="text-center my-3">
+                <h4>TRAIN TRACKER SYSTEM</h4>
+            </div>
+
             <div className="row mt-2">
                     <InputField 
                     whatFor={'Usuário'}
@@ -64,8 +72,8 @@ function LoginForm() {
                 </div>
             </div>
             
-                <LoginButton 
-                    whatFor={'Login'}
+                <LoginButton
+                    whatFor={'LOGIN'}
                     onLoginClick={handleLogin}
                 />
 
