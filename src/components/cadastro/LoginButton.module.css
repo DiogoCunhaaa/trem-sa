@@ -2,9 +2,14 @@
   background-color: #979797;
   border: none;
   border-radius: 50px;
-  padding: 10px 20px;
+  padding: 13px 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: x-large;
+  width: 100%;
+  box-sizing: border-box;
 }

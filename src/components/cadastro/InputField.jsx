@@ -8,7 +8,7 @@ function InputField({ whatFor, whatValue, onChange, password = false }) {
         <div className="container">
             <div className={styles.customInput}>
             <div className={styles.iconCircle}>
-                <i className={`bi ${isPassword ? 'bi-lock' : 'bi-person'}`}></i>
+                <i className={`bi p-5 ${isPassword ? 'bi-lock' : 'bi-person'}`}></i>
             </div>
             <input
                 type={isPassword ? 'password' : 'text'}
