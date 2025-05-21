@@ -39,7 +39,7 @@ function Dashboard() {
             />
 
             {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
-            <div className='mx-auto' style={{borderLeft: '2px solid #1e293b'}}></div>
+            <div className='mx-auto' style={{borderLeft: '2px solid #2f363f'}}></div>
             {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
 
             <RectanglePartInfo 
@@ -57,9 +57,9 @@ function Dashboard() {
       <div className="row mt-3">
         <div className="col-md-12">
           <h2 className='mx-4 fw-bold'>Velocidade</h2>
-          <RectanglePart>
-            <SpeedGraphic />
-          </RectanglePart>
+            <RectanglePart>
+              <SpeedGraphic />
+            </RectanglePart>
         </div>
       </div>
     </div>

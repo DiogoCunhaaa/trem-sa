@@ -33,6 +33,11 @@ function HomeMenu() {
         to="/loginpage"
         label="LOGIN"
       />
+      <HomeButton 
+        imageUrl="https://images.unsplash.com/photo-1624060798683-144bad071963?q=80&w=2070"
+        to="/cadastropage"
+        label="CADASTRO"
+      />
         </>
     )
 }
