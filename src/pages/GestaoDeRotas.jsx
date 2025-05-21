@@ -3,17 +3,6 @@ import WeatherCard from '../components/GestaoDeRotas/WeatherCard';
 
 
 function GestaoDeRotas() {
-
-  const handlePauseRoute = () => {
-    console.log('Rota pausada');
-    
-  };
-
-  const handleChangeRoute = () => {
-    console.log('Mudar rota');
-    
-  };
-
   return (
     <>
       <WeatherCard />

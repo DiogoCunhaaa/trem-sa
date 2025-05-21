@@ -1,32 +1,57 @@
-import HomeButton from '../components/HomeButton';
+
+import RectanglePart from '../components/RectanglePart';
+import RectanglePartInfo from '../components/RectanglePartInfo';
+import SquarePart from '../components/SquarePart';
+import SquarePartInfo from '../components/SquarePartInfo';
+import SquarePartTest from '../components/SquarePartTest';
 
 function Dashboard() {
 
   return (
-    <div>
-      <div className='App'>
-        <HomeButton 
-        imageUrl='https://i.pinimg.com/736x/14/d7/df/14d7df61dc1701521d25761a48dab232.jpg' 
-        to='/about'
-        label='DASHBOARD'
+    <div className='container'>
+      <RectanglePart>
+        <RectanglePartInfo
+          align={'text-center'}
+          wrap={'flex-nowrap'}
+          title={'Equipe de Manutenção'}
+          description={'Solicitando PARADA daqui 20Km'}
+          display={'none'}
         />
-        <HomeButton 
-        imageUrl='https://images.unsplash.com/photo-1596245296613-cfcdd8490086?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
-        label='GESTAO DE ROTAS'
+
+        {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
+        <div className="mx-auto" style={{borderLeft: '2px solid #2f363f'}}></div>
+        {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
+      
+        <RectanglePartInfo 
+          align={'text-center'}
+          wrap={'flex-nowrap'}
+          title={'Atenção!'}
+          description={'Vazamentos de fluídos no freio'}
+          display={'none'}
         />
-        <HomeButton 
-        imageUrl='https://plus.unsplash.com/premium_photo-1661962552319-1f0abc1fc7f7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
-        label='MANUTENCAO'
-        />
-        <HomeButton 
-        imageUrl='https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
-        label='RELATORIOS E ANALISES'
-        />
-        <HomeButton 
-        imageUrl='https://images.unsplash.com/photo-1624060798683-144bad071963?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
-        label='ALERTAS E NOTIFICACOES'
-        />
+      </RectanglePart>
+
+      <div className="row mt-3">
+        <div className="col-6">
+          <SquarePartTest backgroundColor={'black'} corTexto={'white'}>
+            <SquarePartInfo 
+              title={'Reboque'}
+              display={'none'}
+              
+            />
+          </SquarePartTest>
+        </div>
+        <div className="col-6">
+          <SquarePartTest>
+            <SquarePartInfo 
+              title={'Reboque'}
+              display={'none'}
+              
+            />
+          </SquarePartTest>
+        </div>
       </div>
+      
     </div>
   );
 }
