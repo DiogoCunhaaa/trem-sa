@@ -9,6 +9,7 @@ import Relatorios from './pages/Relatorios';
 import Alertas from './pages/Alertas';
 import HomeMenu from './components/HomeMenu';
 import LoginPage from './pages/LoginPage';
+import CadastroPage from './pages/CadastroPage';
 
 function App() {
   const location = useLocation();
@@ -20,7 +21,8 @@ function App() {
     '/manutencao': 'Manutenção',
     '/relatorios': 'Relatórios e Análises',
     '/alertas': 'Alertas e Notificações',
-    '/loginpage': 'Login'
+    '/loginpage': 'Login',
+    '/cadastropage': 'Cadastro'
   }
 
   const currentTitle = pageTitles[location.pathname] || 'Pagina';
@@ -48,6 +50,9 @@ function App() {
         <Route path="/relatorios" element={<Relatorios />} />
         <Route path="/alertas" element={<Alertas />} />
         <Route path="/loginpage" element={<LoginPage />} />
+        <Route path="/cadastropage" element={<CadastroPage />} />
+
+
       </Routes>
     </>
   );
