@@ -1,5 +1,4 @@
-import HomeButton from '../components/HomeButton';
-import WeatherCard from '../components/GestaoDeRotas/WeatherCard';
+import WeatherCard from '../components/gestaorotas/WeatherCard';
 
 
 function GestaoDeRotas() {

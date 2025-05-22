@@ -1,9 +1,9 @@
 
 import RectanglePart from '../components/RectanglePart';
 import RectanglePartInfo from '../components/RectanglePartInfo';
-import SquarePart from '../components/SquarePart';
+
 import SquarePartInfo from '../components/SquarePartInfo';
-import SquarePartTest from '../components/SquarePartTest';
+import SquarePart from '../components/SquarePart';
 
 function Dashboard() {
 
@@ -12,7 +12,6 @@ function Dashboard() {
       <RectanglePart>
         <RectanglePartInfo
           align={'text-center'}
-          wrap={'flex-nowrap'}
           title={'Equipe de Manutenção'}
           description={'Solicitando PARADA daqui 20Km'}
           display={'none'}
@@ -24,7 +23,6 @@ function Dashboard() {
       
         <RectanglePartInfo 
           align={'text-center'}
-          wrap={'flex-nowrap'}
           title={'Atenção!'}
           description={'Vazamentos de fluídos no freio'}
           display={'none'}
@@ -33,22 +31,24 @@ function Dashboard() {
 
       <div className="row mt-3">
         <div className="col-6">
-          <SquarePartTest backgroundColor={'black'} corTexto={'white'}>
+          <SquarePart flex={'d-flex'} backgroundColor={'black'} corTexto={'white'}>
             <SquarePartInfo 
               title={'Reboque'}
               display={'none'}
-              
+              margin={'mx-auto'}
             />
-          </SquarePartTest>
+          </SquarePart>
         </div>
         <div className="col-6">
-          <SquarePartTest>
+          <SquarePart flex={'d-flex'}>
             <SquarePartInfo 
-              title={'Reboque'}
+              align={'text-center'}
+              title={'Manutenção nos Trilhos'}
+              description={'Está acontecendo uma manutenção no km 30 dos trilhos'}
               display={'none'}
-              
+              margin={'mx-auto'}
             />
-          </SquarePartTest>
+          </SquarePart>
         </div>
       </div>
       

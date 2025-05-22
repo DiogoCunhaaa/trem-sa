@@ -4,13 +4,25 @@ function Navbar (props) {
     const navigate = useNavigate();
     const location = useLocation();
 
+    const handleClick = () => {
+        navigate(props.to);
+    };
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#f5f5f5'}}>
-            <a href="#" className="navbar-brand px-3 fs-3" style={{
-                color: `${props.corTexto}`,
-            }}>
+            <span
+                role="button"
+                className="navbar-brand px-3 fs-3 fw-bold"
+                style={{ color: props.corTexto, cursor: 'pointer'}}
+                onClick={handleClick}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        handleClick();
+                    }
+                }}
+            >
                 {props.title}
-            </a>
+            </span>
 
             {location.pathname !== '/' && (
                 <button

@@ -1,37 +1,53 @@
-import SquarePart from '../components/SquarePart';
 import RectanglePart from '../components/RectanglePart';
 import RectanglePartInfo from '../components/RectanglePartInfo';
-import SpeedGraphic from '../components/SpeedGraphic';
+import BarGraphic from '../components/BarGraphic';
+import SquarePart from '../components/SquarePart';
+import SquarePartInfo from '../components/SquarePartInfo';
+import { ProgressBar } from 'react-bootstrap';
 
 function Dashboard() {
+  //BARRA DE PROGRESSO COMECINHO DO DASHBOARD
+  const progressBarAmount = 42;
+  const restanteProgressBar = 180
+  const progressBarText = `${restanteProgressBar}km\n restantes`
+
+
   return (
-    <div style={{backgroundColor: '#FBFCF8'}}>
-    <div className="container">
-      <div className="row mt-3">
+    <div className='container' style={{backgroundColor: '#FBFCF8'}}>
+      <div className="row">
+
         <div className="col-6">
-          <SquarePart 
-            title="Trajeto"
-            percentageLeft="42% completo"
-            distanceLeft="180 km"
-          />
+          <SquarePart backgroundColor={'black'} corTexto={'white'}>
+            <SquarePartInfo 
+              title={'Trajeto'}
+              display={'none'}
+            />
+            <p>42% completo</p>
+            <ProgressBar variant='link' style={{backgroundColor: '#b8b8b8'}} now={progressBarAmount} label={`${progressBarAmount}`} visuallyHidden />
+            <p className='mt-2' style={{whiteSpace: 'pre-line'}}>{progressBarText}</p>
+          </SquarePart> 
         </div>
+
         <div className="col-6">
-          <SquarePart 
-            title="Combustível"
-            percentageLeft="80% completo"
-            distanceLeft="2400 L"
-            backgroundColor="#d9d9d9"
-            corTexto="black"
-          />
+          <SquarePart>
+            <SquarePartInfo 
+              title={'Trajeto'}
+              display={'none'}
+            />
+            <p>42% completo</p>
+            <ProgressBar variant='link' style={{backgroundColor: '#b8b8b8'}} now={progressBarAmount} label={`${progressBarAmount}`} visuallyHidden />
+            <p className='mt-2' style={{whiteSpace: 'pre-line'}}>{progressBarText}</p>
+          </SquarePart> 
         </div>
+
       </div>
-    </div>
-    <div className="container">
+         
+    
       <div className="row mt-3">
         <div className="col-12">
           <RectanglePart backgroundColor="#d9d9d9">
             <RectanglePartInfo
-              title={"Saida"}
+              title={"Saída"}
               horario="08:00 AM"
               data="21 Jan, 2025"
               corTexto="black"
@@ -52,17 +68,15 @@ function Dashboard() {
           </RectanglePart>
         </div>
       </div>
-    </div>
-    <div className="container">
-      <div className="row mt-3">
+
+      <div className="row mt-2">
         <div className="col-md-12">
           <h2 className='mx-4 fw-bold'>Velocidade</h2>
             <RectanglePart>
-              <SpeedGraphic />
+              <BarGraphic />
             </RectanglePart>
         </div>
       </div>
-    </div>
     </div>
   );
 }
