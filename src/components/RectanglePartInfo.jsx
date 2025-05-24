@@ -1,6 +1,6 @@
-function RectanglePartInfo({ title, horario, data, corTexto, icone, display, description, align, wrap}) {
+function RectanglePartInfo({ title, horario, data, corTexto, icone, display, description, align}) {
     return (
-        <div className={`${align} ${wrap} m-2`}>
+        <div className={`${align} m-2`}>
             <h1 className="fs-5 fw-bold" style={{ color: corTexto }}>{title}</h1>
             <p className="mb-2">{description}</p>
             <p className="mb-2">{horario} {icone}</p>

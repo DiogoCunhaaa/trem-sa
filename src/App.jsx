@@ -7,7 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Manutencao from './pages/Manutencao';
 import Relatorios from './pages/Relatorios';
 import Alertas from './pages/Alertas';
-import HomeMenu from './components/HomeMenu';
+import HomeMenu from './components/homepage/HomeMenu';
 import LoginPage from './pages/LoginPage';
 import CadastroPage from './pages/CadastroPage';
 
@@ -29,10 +29,11 @@ function App() {
 
   return (
     <>
-    <div>
+    <div className='container-fluid'>
       <Navbar
       title={currentTitle}
       corTexto={'dark'}
+      to={'/'}
       />
     </div>
       <Routes>
