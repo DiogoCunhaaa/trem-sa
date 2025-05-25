@@ -31,7 +31,7 @@ function Dashboard() {
         <div className="col-6">
           <SquarePart>
             <SquarePartInfo 
-              title={'Trajeto'}
+              title={'Combustível'}
               display={'none'}
             />
             <p>42% completo</p>

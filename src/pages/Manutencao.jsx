@@ -9,25 +9,33 @@ function Dashboard() {
 
   return (
     <div className='container'>
-      <RectanglePart>
-        <RectanglePartInfo
-          align={'text-center'}
-          title={'Equipe de Manutenção'}
-          description={'Solicitando PARADA daqui 20Km'}
-          display={'none'}
-        />
 
-        {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
-        <div className="mx-auto" style={{borderLeft: '2px solid #2f363f'}}></div>
-        {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
+      <div className="row">
+        <div className="col-12">
+          <RectanglePart>
+            <RectanglePartInfo
+              align={'text-center'}
+              title={'Equipe de Manutenção'}
+              titleFontSize={'fs-3'}
+              description={'Solicitando PARADA daqui 20Km'}
+              display={'none'}
+            />
+
+            {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
+            <div className="mx-auto" style={{borderLeft: '2px solid #2f363f'}}></div>
+            {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
+          
+            <RectanglePartInfo 
+              align={'text-center'}
+              title={'Atenção!'}
+              description={'Vazamentos de fluídos no freio'}
+              display={'none'}
+            />
+          </RectanglePart>
+        </div>
+      </div>
+
       
-        <RectanglePartInfo 
-          align={'text-center'}
-          title={'Atenção!'}
-          description={'Vazamentos de fluídos no freio'}
-          display={'none'}
-        />
-      </RectanglePart>
 
       <div className="row mt-3">
         <div className="col-6">

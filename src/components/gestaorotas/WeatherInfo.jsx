@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import RectanglePartInfo from "../RectanglePartInfo";
+import CustomButton from "../CustomButton";
 
 
 //TUDO ISSO PRA PEGAR A CIDADE DO USUARIO
@@ -101,8 +102,10 @@ function WeatherInfo() {
   return (
 
     <div className="d-flex justify-content-between w-100">
-        <RectanglePartInfo 
-          title={cidade || "Carregando..."}
+        
+        <div className="my-auto">
+          <RectanglePartInfo 
+          title={cidade || "Carregando..."} 
           titleFontSize={'fs-3'}
           temperatura={`${Math.round(clima.temperatura)} °C` || "Carregando..."}
           tempFontSize={'fs-1'}
@@ -113,15 +116,37 @@ function WeatherInfo() {
           }
           display={'none'}
         />
-        <RectanglePartInfo 
+        </div>
+        
+        
+        <div className="my-auto">
+          <RectanglePartInfo 
           description={'Visibilidade'}
           display={'none'}
         />
-
         <RectanglePartInfo 
-          description={'Visibilidade'}
+          description={'Umidade'}
           display={'none'}
         />
+        <RectanglePartInfo 
+          description={'Vento'}
+          display={'none'}
+        />
+        <RectanglePartInfo 
+          description={'Máx'}
+          display={'none'}
+        />
+        </div>
+        
+        <div>
+          <CustomButton 
+          whatFor={'Pausar Rota'}
+        />
+        <CustomButton 
+          whatFor={'Mudar Rota'}
+        />
+        </div>
+        
     </div>
 
   )
