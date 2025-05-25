@@ -13,6 +13,16 @@ function GestaoDeRotas() {
           </RectanglePart>
         </div>
       </div>
+
+      <div className="row mt-3">
+        <div className="col">
+          <h2 className='mx-4 fw-bold'>Últimos Pedidos</h2>
+          <RectanglePart>
+            
+          </RectanglePart>
+        </div>
+      </div>
+
       
     </div>
   );
