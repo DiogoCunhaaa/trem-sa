@@ -1,6 +1,6 @@
 # Sistema de Trens em React
 
-Uma aplicacao de SA com o intuito de aprimorar nossas conhecimentos na matéria PRAP.
+Uma aplicação de SA com o intuito de aprimorar nossas conhecimentos na matéria PRAP.
 
 ---
 
@@ -43,5 +43,5 @@ Uma aplicacao de SA com o intuito de aprimorar nossas conhecimentos na matéria 
 ## 🤝 Colaboradores
 
 - Diogo Cunha - [@DiogoCunhaaa](https://github.com/DiogoCunhaaa)
-- Joao Vitor - [@JoaoVieiraa07](https://github.com/JoaoVieiraa07)
+- João Vitor - [@JoaoVieiraa07](https://github.com/JoaoVieiraa07)
 - Matheus Picolli - [@MatheusPicollik](https://github.com/MatheusPicollik)
