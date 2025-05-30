@@ -1,5 +1,7 @@
 //import { useState } from "react"
 import InputField from "./InputField";
+import LoginButton from "./LoginButton";
+import styles from "./CadastroForm.module.css"
 
 function CadastroForm() {
     //const [usuario, setUsuario] = useState("");
@@ -43,6 +45,17 @@ function CadastroForm() {
                     //onChange={(e) => setSenha(e.target.value)}
                 />
             </div>
+            <LoginButton
+                whatFor={'CADASTRO'}
+            />
+          <div className="d-flex justify-content-end align-items-end">  
+            <div className={`${styles.iconCircle} me-2`}>
+                <i className="bi bi-facebook fs-2 m-0 p-0"></i>
+            </div>
+            <div className={`${styles.iconCircle} me-2`}>
+                <i className="bi bi-google fs-2 m-0 p-0"></i>
+            </div>
+           </div> 
         </div>
     );
 }

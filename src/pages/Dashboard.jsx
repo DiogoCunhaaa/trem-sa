@@ -46,25 +46,29 @@ function Dashboard() {
       <div className="row mt-3">
         <div className="col-12">
           <RectanglePart backgroundColor="#d9d9d9">
-            <RectanglePartInfo
-              title={"Saída"}
-              horario="08:00 AM"
-              data="21 Jan, 2025"
-              corTexto="black"
-              icone={<i className="bi bi-sunrise"></i>}
-            />
+            <div className="px-3">
+              <RectanglePartInfo
+                title={"Saída"}
+                horario="08:00 AM"
+                data="21 Jan, 2025"
+                corTexto="black"
+                icone={<i className="bi bi-sunrise"></i>}
+              />
+            </div>
 
             {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
-            <div className='mx-auto' style={{borderLeft: '2px solid #2f363f'}}></div>
+            <div className='align-right mx-auto' style={{borderLeft: '2px solid #2f363f'}}></div>
             {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
-
-            <RectanglePartInfo 
-              title={"Chegada"}
-              horario="09:00 PM"
-              data="22 Jan, 2025"
-              corTexto="black"
-              icone={<i className="bi bi-moon"></i>}
-            />
+            
+            <div className="d-flex justify-content-end">
+              <RectanglePartInfo 
+                title={"Chegada"}
+                horario="09:00 PM"
+                data="22 Jan, 2025"
+                corTexto="black"
+                icone={<i className="bi bi-moon"></i>}
+              />
+            </div>
           </RectanglePart>
         </div>
       </div>

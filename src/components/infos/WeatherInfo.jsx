@@ -132,6 +132,7 @@ function WeatherInfo() {
           description={'Vento'}
           display={'none'}
         />
+        
         <RectanglePartInfo 
           description={'Máx'}
           display={'none'}
