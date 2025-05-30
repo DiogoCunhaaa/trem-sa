@@ -1,4 +1,5 @@
-import WeatherInfo from '../components/gestaorotas/WeatherInfo';
+import WeatherInfo from '../components/infos/WeatherInfo';
+import PedidosInfo from '../components/infos/PedidosInfo';
 import RectanglePart from '../components/RectanglePart';
 
 
@@ -18,7 +19,9 @@ function GestaoDeRotas() {
         <div className="col">
           <h2 className='mx-4 fw-bold'>Últimos Pedidos</h2>
           <RectanglePart>
-            
+            <PedidosInfo 
+              whatFor={'done'}
+            />
           </RectanglePart>
         </div>
       </div>
