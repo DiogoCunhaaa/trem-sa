@@ -139,7 +139,7 @@ function WeatherInfo() {
         />
         </div>
         
-        <div>
+        <div className="my-auto">
           <CustomButton 
           whatFor={'Pausar Rota'}
         />
