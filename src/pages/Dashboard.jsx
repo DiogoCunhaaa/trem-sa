@@ -46,7 +46,7 @@ function Dashboard() {
       <div className="row mt-3">
         <div className="col-12">
           <RectanglePart backgroundColor="#d9d9d9">
-            <div className="px-3">
+            <div className="px-2">
               <RectanglePartInfo
                 title={"Saída"}
                 horario="08:00 AM"
@@ -57,10 +57,10 @@ function Dashboard() {
             </div>
 
             {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
-            <div className='align-right mx-auto' style={{borderLeft: '2px solid #2f363f'}}></div>
+            <div className='mx-auto' style={{borderLeft: '2px solid #2f363f'}}></div>
             {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
             
-            <div className="d-flex justify-content-end">
+            <div className="d-flex">
               <RectanglePartInfo 
                 title={"Chegada"}
                 horario="09:00 PM"
