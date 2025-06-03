@@ -50,17 +50,19 @@ function useCityWeather(cidade) {
       const buscarClima = async () => {
         try {
           const resposta = await fetch(
-            `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cidade}&lang=pt`
+            `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${cidade}&lang=pt`
           );
           const dados = await resposta.json();
 
           if (resposta.ok) {
             setClima({
               temperatura: dados.current.temp_c,
+              tempMax: dados?.forecast?.forecastday[0]?.day?.maxtemp_c,
               condicao: dados.current.condition.text,
               icone: dados.current.condition.icon,
               umidade: dados.current.humidity,
               vento: dados.current.wind_kph,
+              visibilidade: dados.current.vis_km,
             });
           } else {
             setErroClima("Erro ao buscar dados de clima");
@@ -73,13 +75,14 @@ function useCityWeather(cidade) {
       buscarClima();
     }
   }, [cidade]);  
-
+  
   return {clima, erroClima}
 }
 
 
 //RETORNAR O CARD
 function WeatherInfo() {
+  
   const {cidade, erroLocalizacao} = useCityLocation();
   const {clima, erroClima } = useCityWeather(cidade);
 
@@ -120,23 +123,22 @@ function WeatherInfo() {
         
         
         <div className="my-auto">
-          <RectanglePartInfo 
-          description={'Visibilidade'}
-          display={'none'}
-        />
-        <RectanglePartInfo 
-          description={'Umidade'}
-          display={'none'}
-        />
-        <RectanglePartInfo 
-          description={'Vento'}
-          display={'none'}
-        />
-        
-        <RectanglePartInfo 
-          description={'Máx'}
-          display={'none'}
-        />
+          <div className="text-center">
+            <span className="d-block fw-lighter small">Visibilidade</span>
+            <span className="fw-bold small">{`${clima.visibilidade} Km` || "Carregando..."}</span>
+          </div>
+          <div className="text-center">
+            <span className="d-block fw-light small">Umidade</span>
+            <span className="fw-bold small">{`${clima.umidade} %`}</span>
+          </div>
+          <div className="text-center">
+            <span className="d-block fw-light small">Vento</span>
+            <span className="fw-bold small">{`${clima.vento} Km/h` || "Carregando..."}</span>
+          </div>
+          <div className="text-center">
+            <span className="d-block fw-light small">Máx</span>
+            <span className="fw-bold small">{`${Math.round(clima.tempMax)} °C`}</span>
+          </div>
         </div>
         
         <div className="my-auto">

@@ -39,14 +39,16 @@ function Dashboard() {
 
       <div className="row mt-3">
         <div className="col-6">
-          <SquarePart flex={'d-flex'} backgroundColor={'black'} corTexto={'white'}>
+          <SquarePart flex="d-flex flex-column" backgroundColor="black" corTexto="white">
             <SquarePartInfo 
-              title={'Reboque'}
-              display={'none'}
-              margin={'mx-auto'}
+              title="Reboque"
+              display="none"
+              margin="mx-auto"
             />
+            <button className="btn btn-light mt-auto mx-auto"> Solicitar Reboque</button>
           </SquarePart>
         </div>
+
         <div className="col-6">
           <SquarePart flex={'d-flex'}>
             <SquarePartInfo 
@@ -59,7 +61,6 @@ function Dashboard() {
           </SquarePart>
         </div>
       </div>
-      
     </div>
   );
 }
