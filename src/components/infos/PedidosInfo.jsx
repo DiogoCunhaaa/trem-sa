@@ -24,12 +24,12 @@ function PedidosInfo({ icon, item }) {
             <div className="d-flex align-items-center gap-4">
                 <div className="text-center">
                     <span className="d-block fw-bold small">DATA</span>
-                    <span>{item.data}</span>
+                    <span>{item.dataFormatada}</span>
                 </div>
 
                 <div className="text-center">
                     <span className="d-block fw-bold small">PESO</span>
-                    <span>{item.peso}</span>
+                    <span>{item.pesoFormatado}</span>
                 </div>
 
                 <div className="text-center">
