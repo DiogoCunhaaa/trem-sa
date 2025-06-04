@@ -14,8 +14,6 @@ const dadosProduto = [
 const coletados = new DadosColetados(dadosProduto);
 
 
-const quantidade = (dadosProduto.lenght)
-
 function GestaoDeRotas() {
   return (
     <div className='container'>

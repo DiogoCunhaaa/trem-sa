@@ -1,68 +1,70 @@
+import RectanglePart from "../components/RectanglePart";
+import ManutencaoInfo from "../components/infos/ManutencaoInfo";
+import SmallInfo from "../components/infos/SmallInfo";
+import Mensagens from "../javascript/Mensagens";
 
-import RectanglePart from '../components/RectanglePart';
-import RectanglePartInfo from '../components/RectanglePartInfo';
 
-import SquarePartInfo from '../components/SquarePartInfo';
-import SquarePart from '../components/SquarePart';
+function Manutencao() {
 
-function Dashboard() {
+  //MENSAGENS DE MANUTENCAO
+  const manutencaoMensagens = [
+    {id: '1', nome: 'Manutenção nos Trilhos', msg: Mensagens.gerarMensagensManutencao(30)},
+    {id: '2', nome: 'Possível Obstrução', msg: Mensagens.gerarMensagensObstrucao('alagamento') }, // ### = motivo da obstrucao
+    {id: '3', nome: 'Próximo Ponto de Manutenção', msg: Mensagens.gerarMensagensPontoManutencao(15)},
+    {id: '4', nome: 'Equipe de Manutenção', msg: Mensagens.gerarMensagensEqpManutencao(20)}
+  ]
+
 
   return (
     <div className='container'>
-
-      <div className="row">
-        <div className="col-12">
-          <RectanglePart>
-            <RectanglePartInfo
-              align={'text-center'}
-              title={'Equipe de Manutenção'}
-              titleFontSize={'fs-3'}
-              description={'Solicitando PARADA daqui 20Km'}
-              display={'none'}
-            />
-
-            {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
-            <div className="mx-auto" style={{borderLeft: '2px solid #2f363f'}}></div>
-            {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
-          
-            <RectanglePartInfo 
-              align={'text-center'}
-              title={'Atenção!'}
-              description={'Vazamentos de fluídos no freio'}
-              display={'none'}
-            />
-          </RectanglePart>
-        </div>
-      </div>
-
       
+    <div className="row">
+      
+      <div className="col-12">
+        <RectanglePart>
+        {manutencaoMensagens.filter(item => item.id === '4').map(item => (
+          <ManutencaoInfo 
+            key={item.id}
+            title={item.nome}
+            msg={item.msg}
+          />
+        ))}
+        </RectanglePart>
+      </div>
+    
+    </div>
+
 
       <div className="row mt-3">
+
         <div className="col-6">
-          <SquarePart flex="d-flex flex-column" backgroundColor="black" corTexto="white">
-            <SquarePartInfo 
-              title="Reboque"
-              display="none"
-              margin="mx-auto"
+          <RectanglePart>
+          {manutencaoMensagens.filter(item => item.id === '1').map(item => (
+            <SmallInfo 
+              key={item.id}
+              title={item.nome}
+              msg={item.msg}
             />
-            <button className="btn btn-light mt-auto mx-auto"> Solicitar Reboque</button>
-          </SquarePart>
+          ))}
+          </RectanglePart>
         </div>
 
         <div className="col-6">
-          <SquarePart flex={'d-flex'}>
-            <SquarePartInfo 
-              align={'text-center'}
-              title={'Manutenção nos Trilhos'}
-              description={'Está acontecendo uma manutenção no km 30 dos trilhos'}
-              display={'none'}
-              margin={'mx-auto'}
+          <RectanglePart>
+          {manutencaoMensagens.filter(item => item.id === '2').map(item => (
+            <SmallInfo 
+              key={item.id}
+              title={item.nome}
+              msg={item.msg}
             />
-          </SquarePart>
+          ))}
+          </RectanglePart>
         </div>
+
       </div>
-    </div>
-  );
-}
 
-export default Dashboard;
+    </div>
+  )
+
+  }
+export default Manutencao;
