@@ -56,7 +56,7 @@ export default class Mensagens {
         const horarioPartida = new Date(data); //PRA SETAR O HORARIO ALVO DE PARTIDA 
         horarioPartida.setHours(8, 0, 0, 0)//ISSO DEFINE O HORARIO ALVO COMO 8AM
 
-        const diferencaMs = horarioPartida.getTime() - agora.getTime(); //PEGA A DIFERENCA DA HORA SAIDA E AGORA (EM MILISSEGUNDOS)
+        const diferencaMs = agora.getTime() - horarioPartida.getTime(); //PEGA A DIFERENCA DA HORA SAIDA E AGORA (EM MILISSEGUNDOS)
         const diferencaMin = Math.round(diferencaMs / 60000); //CONVERTE A DIFERENCA PRA MINUTOS 
 
         const horaFormatada = horarioPartida.toLocaleTimeString('pt-BR', {
@@ -64,8 +64,12 @@ export default class Mensagens {
             minute: '2-digit',
         });
 
-        return `Horário de partida definido para ${diferencaMin} min (${horaFormatada})`;
-    }
+        if (diferencaMin > 60 ) {
+            const diferencaHour = Math.round(diferencaMin / 60);
+            return `Horário de partida definido para ${diferencaHour} horas (${horaFormatada} AM).`
+        }
 
+        return `Horário de partida definido para ${diferencaMin} min (${horaFormatada} AM).`;
+    }
 }
 
