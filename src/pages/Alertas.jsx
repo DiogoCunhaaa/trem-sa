@@ -1,49 +1,31 @@
 import RectanglePart from '../components/RectanglePart';
 import AlertasInfo from '../components/infos/AlertasInfo';
+import Mensagens from '../javascript/Mensagens';
 
 function Dashboard() {
 
+  const alertasMensagens = [
+    {id: '1', nome: 'Freio degastado', msg: ''},
+    {id: '2', nome: 'Nível de combustível', msg: ''},
+    {id: '3', nome: 'Horário de partida', msg: Mensagens.gerarMensagensPartida()},
+  ]
+
   return (
-    <div style={{backgroundColor: '#FBFCF8'}}>
-      <div>
-        <RectanglePart> 
-          <AlertasInfo 
-            hour={'10:45 PM'}
-            title={'Freio desgastado'}
-            description={'Parada recomendada na próxima estação.'}
-          />
-           
-        </RectanglePart>
-      </div>
-      <div className='my-2'></div>
-      <div>
-        <RectanglePart>
-          <AlertasInfo 
-            hour={'10:30 PM'}
-            title={'Nivel de combustível'}
-            description={'Nivel de combustível inferior a 30%.'}
-          />
-        </RectanglePart>
-      </div>
-      <div className='my-2'></div>
-      <div>
-        <RectanglePart>
-          <AlertasInfo
-            hour={'08:16 PM'}
-            title={'Nivel de combustível'}
-            description={'Nivel de combustível inferior a 50%.'}
-            />
-        </RectanglePart>
-      </div>
-      <div className='my-2'></div>
-      <div>
-        <RectanglePart>
-          <AlertasInfo
-            hour={'07:45 AM'}
-            title={'Horário de partida'}
-            description={'Horario de partida definido para 15 minutos.'}
-            />
-        </RectanglePart>
+    <div className="container">
+      <div className="row mt-3">
+        <div className="col-12">
+          <RectanglePart>
+
+            {alertasMensagens.filter(item => item.id === '3').map(item => (
+              <AlertasInfo 
+                key={item.id}
+                title={item.nome}
+                msg={item.msg}
+              />
+            ))}
+
+          </RectanglePart>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 export default class Mensagens {
 
+    //FORMATACAO DE INFOS (LITROS E DATA) PARA GESTAO DE ROTAS
     static formatarLitros(litros) {
         return `${litros.toFixed(0)}L`;
     }
@@ -10,6 +11,7 @@ export default class Mensagens {
         return `${horas}:${minutos}`;
     }
 
+    //RELATORIOS
     static gerarMensagensConsumo(litros) {
         return `Consumo energético de ${this.formatarLitros(litros)} em uma hora`;
     }
@@ -18,6 +20,7 @@ export default class Mensagens {
         return `Parada para abastecimento às ${this.formatarHorario(data)}`;
     }
 
+    //MANUTENCAO
     static gerarMensagensManutencao(km) {
         return `Está acontecendo uma manutenção no km ${km} dos trilhos.`
     }
@@ -36,6 +39,32 @@ export default class Mensagens {
 
     static gerarMensagensAtencao(causa) {
         return `Vazamento de fluídos no freio ${causa}.`
+    }
+
+    //ALERTAS
+    static gerarMensagensAlertaFreio() {
+        return `Parada recomendada na próxima estação.`
+    }
+
+    static gerarMensagensAlertaCombustivel(restante) {
+        return `Nível de combustível inferior a ${restante}%.`
+    }
+
+    static gerarMensagensPartida(data = new Date()) {
+        const agora = new Date();
+        
+        const horarioPartida = new Date(data); //PRA SETAR O HORARIO ALVO DE PARTIDA 
+        horarioPartida.setHours(8, 0, 0, 0)//ISSO DEFINE O HORARIO ALVO COMO 8AM
+
+        const diferencaMs = horarioPartida.getTime() - agora.getTime(); //PEGA A DIFERENCA DA HORA SAIDA E AGORA (EM MILISSEGUNDOS)
+        const diferencaMin = Math.round(diferencaMs / 60000); //CONVERTE A DIFERENCA PRA MINUTOS 
+
+        const horaFormatada = horarioPartida.toLocaleTimeString('pt-BR', {
+            hour: '2-digit',
+            minute: '2-digit',
+        });
+
+        return `Horário de partida definido para ${diferencaMin} min (${horaFormatada})`;
     }
 
 }
