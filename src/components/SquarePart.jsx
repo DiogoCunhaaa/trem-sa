@@ -1,4 +1,4 @@
-import styles from './SquarePart.module.css'
+import styles from './styles/SquarePart.module.css'
 
 function SquarePartTest({ backgroundColor, children, corTexto, flex }) {
     return (

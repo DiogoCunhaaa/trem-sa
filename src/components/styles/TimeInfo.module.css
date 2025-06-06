@@ -1,0 +1,14 @@
+.whiteProgressBar {
+    height: 6px;
+    background-color: #000000;
+}
+
+.whiteProgressBar::-webkit-progress-bar {
+    background-color: #000000; 
+    border-radius: 10px;
+  }
+
+  .whiteProgressBar::-webkit-progress-value {
+    background-color: white;
+    border-radius: 10px;
+  }

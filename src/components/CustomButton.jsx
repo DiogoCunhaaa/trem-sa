@@ -1,4 +1,4 @@
-import styles from './CustomButton.module.css'
+import styles from './styles/CustomButton.module.css'
 
 function CustomButton({ whatFor }) {
     return(

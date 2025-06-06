@@ -33,5 +33,10 @@ export default class Mensagens {
     static gerarMensagensEqpManutencao(km) {
         return `Solicitando PARADA daqui à ${km}km.`
     }
+
+    static gerarMensagensAtencao(causa) {
+        return `Vazamento de fluídos no freio ${causa}.`
+    }
+
 }
 

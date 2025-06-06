@@ -1,4 +1,4 @@
-import styles from './PedidosInfo.module.css';
+import styles from '../styles/PedidosInfo.module.css';
 
 function PedidosInfo({ icon, item }) {
     //PARA O ICON DOS STATUS DO PEDIDO
