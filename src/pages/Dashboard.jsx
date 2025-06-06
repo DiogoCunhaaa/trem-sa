@@ -46,7 +46,7 @@ function Dashboard() {
       <div className="row mt-3">
         <div className="col-12">
           <RectanglePart backgroundColor="#d9d9d9">
-            <div className="px-2">
+            <div className="pe-4">
               <RectanglePartInfo
                 title={"Saída"}
                 horario="08:00 AM"

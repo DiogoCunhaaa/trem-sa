@@ -46,7 +46,7 @@ function CadastroForm() {
                 />
             </div>
             <LoginButton
-                whatFor={'CADASTRO'}
+                whatFor={'CADASTRAR'}
             />
           <div className="d-flex justify-content-end align-items-end">  
             <div className={`${styles.iconCircle} me-2`}>
