@@ -30,7 +30,7 @@ function Dashboard() {
       <div className="row mt-3">
         <div className="col-12">
           <RectanglePart>
-            {alertasMensagens.filter(item => item.id === '2c').map(item => (
+            {alertasMensagens.filter(item => item.id === '2').map(item => (
               <AlertasInfo 
                 key={item.id}
                 title={item.nome}
