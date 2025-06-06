@@ -1,4 +1,4 @@
-import styles from './RectanglePart.module.css';
+import styles from './styles/RectanglePart.module.css';
 
 function RectanglePart(props) {
     return (
