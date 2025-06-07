@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import RectanglePartInfo from "../RectanglePartInfo";
-import CustomButton from "../CustomButton";
-
+import { useEffect, useState } from 'react';
+import RectanglePartInfo from '../RectanglePartInfo';
+import CustomButton from '../CustomButton';
 
 //TUDO ISSO PRA PEGAR A CIDADE DO USUARIO
 function useCityLocation() {
-  const [cidade, setCidade] = useState("");
-  const [erroLocalizacao, setErroLocalizacao] = useState("");
+  const [cidade, setCidade] = useState('');
+  const [erroLocalizacao, setErroLocalizacao] = useState('');
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -20,18 +19,22 @@ function useCityLocation() {
             );
             const dados = await resposta.json();
 
-            const nomeCidade = dados.address.city || dados.address.town || dados.address.village || dados.address.country;
+            const nomeCidade =
+              dados.address.city ||
+              dados.address.town ||
+              dados.address.village ||
+              dados.address.country;
             setCidade(nomeCidade);
           } catch (erro) {
-            setErroLocalizacao("Erro ao buscar a cidade.");
+            setErroLocalizacao('Erro ao buscar a cidade.');
           }
         },
         () => {
-          setErroLocalizacao("Permissao errada ou erro na geolocalizacao")
+          setErroLocalizacao('Permissao errada ou erro na geolocalizacao');
         }
       );
     } else {
-      setErroLocalizacao("Geolocalizacao nao é suportada pelo seu navegador");
+      setErroLocalizacao('Geolocalizacao nao é suportada pelo seu navegador');
     }
   }, []);
 
@@ -41,7 +44,7 @@ function useCityLocation() {
 //É PRA PEGAR O CLIMA!!
 function useCityWeather(cidade) {
   const [clima, setClima] = useState(null);
-  const [erroClima, setErroClima] = useState("");
+  const [erroClima, setErroClima] = useState('');
 
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -65,52 +68,58 @@ function useCityWeather(cidade) {
               visibilidade: dados.current.vis_km,
             });
           } else {
-            setErroClima("Erro ao buscar dados de clima");
+            setErroClima('Erro ao buscar dados de clima');
           }
         } catch (error) {
-          setErroClima("Erro na conexao com a api");
-        }; 
-      }
+          setErroClima('Erro na conexao com a api');
+        }
+      };
 
       buscarClima();
     }
-  }, [cidade]);  
-  
-  return {clima, erroClima}
-}
+  }, [cidade]);
 
+  return { clima, erroClima };
+}
 
 //RETORNAR O CARD
 function WeatherInfo() {
-  
-  const {cidade, erroLocalizacao} = useCityLocation();
-  const {clima, erroClima } = useCityWeather(cidade);
+  const { cidade, erroLocalizacao } = useCityLocation();
+  const { clima, erroClima } = useCityWeather(cidade);
 
   const getWeatherIcon = (condicao) => {
     const lowerCondition = condicao.toLowerCase();
 
-    if (lowerCondition.includes('sol')) return <i className="bi bi-brightness-high-fill"></i>;
-    if (lowerCondition.includes('nublado')) return <i className="bi bi-cloudy-fill"></i>;
-    if (lowerCondition.includes('chuva') || lowerCondition.includes("chuvisco")) return <i className="bi bi-cloud-drizzle-fill"></i>;
-    if (lowerCondition.includes('tempestade')) return <i class="bi bi-cloudy-fill"></i>;
-    if (lowerCondition.includes("névoa") || lowerCondition.includes("nevoeiro") || lowerCondition.includes("neblina") || lowerCondition.includes("bruma")) return <i className="bi bi-cloud-fog2"></i>;
-    if (lowerCondition.includes("vento")) return <i class="bi bi-wind"></i>;
-    return ''
-  }
+    if (lowerCondition.includes('sol'))
+      return <i className='bi bi-brightness-high-fill'></i>;
+    if (lowerCondition.includes('nublado'))
+      return <i className='bi bi-cloudy-fill'></i>;
+    if (lowerCondition.includes('chuva') || lowerCondition.includes('chuvisco'))
+      return <i className='bi bi-cloud-drizzle-fill'></i>;
+    if (lowerCondition.includes('tempestade'))
+      return <i class='bi bi-cloudy-fill'></i>;
+    if (
+      lowerCondition.includes('névoa') ||
+      lowerCondition.includes('nevoeiro') ||
+      lowerCondition.includes('neblina') ||
+      lowerCondition.includes('bruma')
+    )
+      return <i className='bi bi-cloud-fog2'></i>;
+    if (lowerCondition.includes('vento')) return <i class='bi bi-wind'></i>;
+    return '';
+  };
 
   if (!clima || !clima.condicao) {
-    return <p>Carregando dados do clima...</p>
+    return <p>Carregando dados do clima...</p>;
   }
-  
-  return (
 
-    <div className="d-flex justify-content-between w-100">
-        
-        <div className="my-auto">
-          <RectanglePartInfo 
-          title={cidade || "Carregando..."} 
+  return (
+    <div className='d-flex justify-content-between w-100'>
+      <div className='my-auto'>
+        <RectanglePartInfo
+          title={cidade || 'Carregando...'}
           titleFontSize={'fs-3'}
-          temperatura={`${Math.round(clima.temperatura)} °C` || "Carregando..."}
+          temperatura={`${Math.round(clima.temperatura)} °C` || 'Carregando...'}
           tempFontSize={'fs-1'}
           description={
             <>
@@ -119,40 +128,39 @@ function WeatherInfo() {
           }
           display={'none'}
         />
-        </div>
-        
-        
-        <div className="my-auto">
-          <div className="text-center">
-            <span className="d-block fw-lighter small">Visibilidade</span>
-            <span className="fw-bold small">{`${clima.visibilidade} Km` || "Carregando..."}</span>
-          </div>
-          <div className="text-center">
-            <span className="d-block fw-light small">Umidade</span>
-            <span className="fw-bold small">{`${clima.umidade} %`}</span>
-          </div>
-          <div className="text-center">
-            <span className="d-block fw-light small">Vento</span>
-            <span className="fw-bold small">{`${clima.vento} Km/h` || "Carregando..."}</span>
-          </div>
-          <div className="text-center">
-            <span className="d-block fw-light small">Máx</span>
-            <span className="fw-bold small">{`${Math.round(clima.tempMax)} °C`}</span>
-          </div>
-        </div>
-        
-        <div className="my-auto">
-          <CustomButton 
-          whatFor={'Pausar Rota'}
-        />
-        <CustomButton 
-          whatFor={'Mudar Rota'}
-        />
-        </div>
-        
-    </div>
+      </div>
 
-  )
-};
+      <div className='my-auto'>
+        <div className='text-center'>
+          <span className='d-block fw-lighter small'>Visibilidade</span>
+          <span className='fw-bold small'>
+            {`${clima.visibilidade} Km` || 'Carregando...'}
+          </span>
+        </div>
+        <div className='text-center'>
+          <span className='d-block fw-light small'>Umidade</span>
+          <span className='fw-bold small'>{`${clima.umidade} %`}</span>
+        </div>
+        <div className='text-center'>
+          <span className='d-block fw-light small'>Vento</span>
+          <span className='fw-bold small'>
+            {`${clima.vento} Km/h` || 'Carregando...'}
+          </span>
+        </div>
+        <div className='text-center'>
+          <span className='d-block fw-light small'>Máx</span>
+          <span className='fw-bold small'>{`${Math.round(
+            clima.tempMax
+          )} °C`}</span>
+        </div>
+      </div>
+
+      <div className='my-auto'>
+        <CustomButton whatFor={'Pausar Rota'} />
+        <CustomButton whatFor={'Mudar Rota'} />
+      </div>
+    </div>
+  );
+}
 
 export default WeatherInfo;

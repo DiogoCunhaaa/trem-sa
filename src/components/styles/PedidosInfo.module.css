@@ -1,10 +1,10 @@
 .iconCircle {
-    background-color: #ffffff;
-    border: 1px solid #b8b8b8;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  background-color: #ffffff;
+  border: 1px solid #b8b8b8;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
