@@ -1,15 +1,16 @@
-function AlertasInfo({title, description, hour}) {
+function AlertasInfo({ title, msg }) {
     return(
         <div>
-            <span className="d-block small text-end" style={{fontSize: 12, marginTop: -9.00}}>{hour}</span>
-            <div className="row">
-                <div className="col-md-6">
-                    <p className="fw-bold fs-3">{title}<i class="fs-5 px-2 bi bi-exclamation-triangle"></i></p>
-                </div>
-                <div className="col-md-6">
-                    <p>{description}</p>
-                </div>
+            
+            <div className="d-flex  align-items-center gap-2">
+                <h1 className="fs-2 fw-bold">{title}</h1>
+                <span><i className="bi bi-exclamation-triangle"></i></span>
             </div>
+
+            <div>
+                <span>{msg}</span>
+            </div>
+
         </div>
     )
 };
