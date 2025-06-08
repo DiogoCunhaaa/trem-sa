@@ -66,10 +66,10 @@ export default class Mensagens {
 
         if (diferencaMin > 60 ) {
             const diferencaHour = Math.round(diferencaMin / 60);
-            return `Horário de partida definido para ${diferencaHour} horas (${horaFormatada} AM).`
+            return `Horário de partida definido para daqui a ${diferencaHour} horas (${horaFormatada} AM).`
         }
 
-        return `Horário de partida definido para ${diferencaMin} min (${horaFormatada} AM).`;
+        return `Horário de partida definido para daqui a ${diferencaMin} min (${horaFormatada} AM).`;
     }
 }
 
