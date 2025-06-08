@@ -1,9 +1,9 @@
 import styles from './styles/CustomButton.module.css'
 
-function CustomButton({ whatFor }) {
+function CustomButton({ whatFor, backgroundColor, buttonTextColor }) {
     return(
         <div className='m-2'> 
-            <button className={`${styles.customButton} fw-bold`}>{whatFor}</button>
+            <button className={`${styles.customButton} fw-bold`} style={{ backgroundColor: backgroundColor, color: buttonTextColor}}>{whatFor}</button>
         </div>
     )
 };
