@@ -1,8 +1,10 @@
-function ManutencaoInfo({ title, msg, textColor }) {
+function ManutencaoInfo({ title, msg, textColor, align = '' }) {
   return (
-    <div className={`text-center w-100 ${textColor}`}>
-      <h1 className='fs-2 fw-bold'>{title}</h1>
-      <p>{msg}</p>
+    <div className={`${align} m-2`}>
+      <div className={`mb-2 fw-2 fw-bold ${textColor}`}>
+        <h5 className='fw-bold mb-1 text-center fs-5'>{title}</h5>
+        <p className='mb-2 text-center'>{msg}</p>
+      </div>
     </div>
   );
 }

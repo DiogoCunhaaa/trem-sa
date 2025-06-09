@@ -76,6 +76,8 @@ function Dashboard() {
                 data='22 Jan, 2025'
                 corTexto='black'
                 icone={<i className='bi bi-moon'></i>}
+
+                
               />
             </div>
           </RectanglePart>
