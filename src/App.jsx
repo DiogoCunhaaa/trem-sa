@@ -1,8 +1,10 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
+import PrivateRoute from './components/autenticacao/PrivateRoute';
+import { useAuth } from './components/autenticacao/AuthContext';
 
-import GestaoDeRotas from './pages/GestaoDeRotas'
+import GestaoDeRotas from './pages/GestaoDeRotas';
 import Dashboard from './pages/Dashboard';
 import Manutencao from './pages/Manutencao';
 import Relatorios from './pages/Relatorios';
@@ -22,39 +24,71 @@ function App() {
     '/relatorios': 'Relatórios e Análises',
     '/alertas': 'Alertas e Notificações',
     '/loginpage': 'Login',
-    '/cadastropage': 'Cadastro'
-  }
+    '/cadastropage': 'Cadastro',
+  };
 
   const currentTitle = pageTitles[location.pathname] || 'Pagina';
 
   return (
     <>
-    <div className='container-fluid'>
-      <Navbar
-      title={currentTitle}
-      corTexto={'dark'}
-      to={'/'}
-      />
-    </div>
+      <div className='container-fluid'>
+        <Navbar title={currentTitle} corTexto={'dark'} to={'/'} />
+      </div>
       <Routes>
-        <Route path='/login' element={<LoginPage />}/>
+        <Route path='/login' element={<LoginPage />} />
         <Route
-          path="/"
+          path='/'
           element={
-            <div className="App">
+            <div className='App'>
               <HomeMenu />
             </div>
           }
         />
-        <Route path="/gestaoderotas" element={<GestaoDeRotas/>} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/manutencao" element={<Manutencao />} />
-        <Route path="/relatorios" element={<Relatorios />} />
-        <Route path="/alertas" element={<Alertas />} />
-        <Route path="/loginpage" element={<LoginPage />} />
-        <Route path="/cadastropage" element={<CadastroPage />} />
-
-
+        <Route
+          path='/gestaoderotas'
+          element={
+            <PrivateRoute>
+              <GestaoDeRotas />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/dashboard'
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/manutencao'
+          element={
+            <PrivateRoute>
+              {' '}
+              <Manutencao />{' '}
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/relatorios'
+          element={
+            <PrivateRoute>
+              {' '}
+              <Relatorios />{' '}
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/alertas'
+          element={
+            <PrivateRoute>
+              {' '}
+              <Alertas />{' '}
+            </PrivateRoute>
+          }
+        />
+        <Route path='/loginpage' element={<LoginPage />} />
+        <Route path='/cadastropage' element={<CadastroPage />} />
       </Routes>
     </>
   );
