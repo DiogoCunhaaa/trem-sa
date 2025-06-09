@@ -61,13 +61,11 @@ function Dashboard() {
                 icone={<i className='bi bi-sunrise'></i>}
               />
             </div>
-
-            {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
+            
             <div
               className='mx-auto'
               style={{ borderLeft: '2px solid #2f363f' }}
             ></div>
-            {/*ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR ARRUMAR */}
 
             <div className='text-start' style={{ minWidth: '136.05px', flex:'1' }}>
               <RectanglePartInfo

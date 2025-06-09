@@ -71,11 +71,14 @@ function Manutencao() {
 
       <div className='row mt-3'>
         <div className="col-6">
-          
+          <RectanglePart>
+          {manutencaoMensagens
+              .filter((item) => item.id === '3')
+              .map((item) => (
+                <SmallInfo key={item.id} title={item.nome} msg={item.msg} />
+              ))}
+          </RectanglePart>  
         </div>  
-      </div>  
-
-      <div className='row mt-3'>
         <div className='col-6'>
           <RectanglePart backgroundColor={'black'}>
             <ButtonInfo
@@ -86,7 +89,10 @@ function Manutencao() {
             />
           </RectanglePart>
         </div>
-      </div>
+
+      </div>  
+
+      
 
       <div className='row mt-3'>
         <div className='col-6'>
