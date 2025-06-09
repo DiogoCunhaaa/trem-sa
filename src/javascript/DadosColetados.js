@@ -4,7 +4,7 @@ export class DadosColetados {
     }
 
     buscarPorId(id) {
-        return this.dados.filter(item => item.id === id);
+        return this.dados.find(item => item.id === id) || null;
     }
 
     filtrarPorData(data) {
