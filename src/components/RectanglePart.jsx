@@ -2,7 +2,7 @@ import styles from './styles/RectanglePart.module.css';
 
 function RectanglePart(props) {
     return (
-        <div className="container">
+        <div className="">
             <div className={styles.square} style={{ backgroundColor: props.backgroundColor}}>
                 <div className='d-flex'>
                     {props.children}
