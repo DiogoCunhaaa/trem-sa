@@ -35,8 +35,8 @@ function Manutencao() {
       <div className='row mt-3'>
         <div className='col-12'>
           <RectanglePart>
-            <div className='d-flex flex-column flex-md-row justify-content-between align-items-center text-center'>
-              <div className='flex-fill'>
+              {/* BLOCO 1 */}
+              <div className='text-start' style={{ minWidth: '136.05px', flex:'1' }}>
                 {manutencaoMensagens
                   .filter((item) => item.id === '4')
                   .map((item) => (
@@ -49,15 +49,12 @@ function Manutencao() {
               </div>
 
               <div
-                className='d-none d-md-block'
-                style={{
-                  width: '1px',
-                  backgroundColor: '#333',
-                  height: '100px',
-                }}
-              ></div>
+              className='mx-auto'
+              style={{ borderLeft: '2px solid #2f363f' }}
+            ></div>
 
-              <div className='flex-fill mt-3 md-0'>
+              {/* BLOCO 2 */}
+              <div className='text-start' style={{ minWidth: '136.05px', flex:'1' }}>
                 {manutencaoMensagens
                   .filter((item) => item.id === '5')
                   .map((item) => (
@@ -68,17 +65,23 @@ function Manutencao() {
                     />
                   ))}
               </div>
-            </div>
           </RectanglePart>
         </div>
       </div>
 
       <div className='row mt-3'>
+        <div className="col-6">
+          <RectanglePart>
+          {manutencaoMensagens
+              .filter((item) => item.id === '3')
+              .map((item) => (
+                <SmallInfo key={item.id} title={item.nome} msg={item.msg} />
+              ))}
+          </RectanglePart>  
+        </div>  
         <div className='col-6'>
-          <RectanglePart
-            backgroundColor={'black'}
-          >
-            <ButtonInfo 
+          <RectanglePart backgroundColor={'black'}>
+            <ButtonInfo
               title={'Reboque'}
               textColor={'white'}
               buttonTitle={'Solicitar Reboque'}
@@ -86,7 +89,10 @@ function Manutencao() {
             />
           </RectanglePart>
         </div>
-      </div>
+
+      </div>  
+
+      
 
       <div className='row mt-3'>
         <div className='col-6'>
