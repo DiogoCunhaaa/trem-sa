@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 import RectanglePartInfo from '../RectanglePartInfo';
 import CustomButton from '../CustomButton';
 
@@ -45,12 +48,15 @@ function useCityLocation() {
 function useCityWeather(cidade) {
   const [clima, setClima] = useState(null);
   const [erroClima, setErroClima] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   useEffect(() => {
     if (cidade) {
       const buscarClima = async () => {
+        setIsLoading(true);
+
         try {
           const resposta = await fetch(
             `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${cidade}&lang=pt`
@@ -68,10 +74,12 @@ function useCityWeather(cidade) {
               visibilidade: dados.current.vis_km,
             });
           } else {
-            setErroClima('Erro ao buscar dados de clima');
+            setErroClima(null);
           }
         } catch (error) {
           setErroClima('Erro na conexao com a api');
+        } finally {
+          setIsLoading(false);
         }
       };
 
@@ -79,13 +87,13 @@ function useCityWeather(cidade) {
     }
   }, [cidade]);
 
-  return { clima, erroClima };
+  return { clima, erroClima, isLoading };
 }
 
 //RETORNAR O CARD
 function WeatherInfo() {
   const { cidade, erroLocalizacao } = useCityLocation();
-  const { clima, erroClima } = useCityWeather(cidade);
+  const { clima, erroClima, isLoading } = useCityWeather(cidade);
 
   const getWeatherIcon = (condicao) => {
     const lowerCondition = condicao.toLowerCase();
@@ -109,8 +117,35 @@ function WeatherInfo() {
     return '';
   };
 
-  if (!clima || !clima.condicao) {
-    return <p>Carregando dados do clima...</p>;
+  //SKELETON LOADING
+  if (isLoading || !clima) {
+    return (
+      <div className='d-flex justify-content-between w-100 my-3 '>
+        <SkeletonTheme baseColor='#b8b8b8' highlightColor='#ccc'>
+          
+          <div className='my-auto'>
+            <p>
+              <Skeleton height={20} />
+            </p>
+            <h1>
+              <Skeleton height={30} width={100} />
+            </h1>
+            <p>
+              <Skeleton height={20}/>
+            </p>
+          </div>
+          
+          <div className='my-auto'>
+            <Skeleton count={4} height={10} width={40}/>
+          </div>
+
+          <div className='my-auto'>
+            <Skeleton count={2} height={40} width={100}/>
+          </div>
+
+        </SkeletonTheme>
+      </div>
+    );
   }
 
   return (
