@@ -12,14 +12,14 @@ const dadosPassageiros = [
   { hora: '21:00', passageiros: 2000 },
 ];
 
-export default function Graphic() {
+export default function Graphic({ data, barDataKey, label }) {
   return (
     <ResponsiveContainer width='100%' height={300}>
-      <BarChart data={dadosPassageiros}>
+      <BarChart data={data}>
         <XAxis dataKey='hora' />
         <YAxis
           label={{
-            value: 'Nº de passageiros',
+            value: label,
             angle: -90,
             position: 'insideLeft',
             offset: 0,
@@ -28,7 +28,7 @@ export default function Graphic() {
             }
           }}
         />
-        <Bar dataKey='passageiros' fill='#979797' />
+        <Bar dataKey={barDataKey} fill='#979797' />
       </BarChart>
     </ResponsiveContainer>
   );
