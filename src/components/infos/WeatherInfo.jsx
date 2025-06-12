@@ -10,6 +10,8 @@ function useCityLocation() {
   const [cidade, setCidade] = useState('');
   const [erroLocalizacao, setErroLocalizacao] = useState('');
 
+  const OPENCAGE_API_KEY = process.env.REACT_APP_OPENCAGE_API_KEY;
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -18,15 +20,18 @@ function useCityLocation() {
 
           try {
             const resposta = await fetch(
-              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+              `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${OPENCAGE_API_KEY}&language=pt&pretty=1`
             );
             const dados = await resposta.json();
 
+            const componentes = dados.results?.[0]?.components;
+
             const nomeCidade =
-              dados.address.city ||
-              dados.address.town ||
-              dados.address.village ||
-              dados.address.country;
+              componentes.city ||
+              componentes.town ||
+              componentes.village ||
+              componentes.state ||
+              componentes.country;
             setCidade(nomeCidade);
           } catch (erro) {
             setErroLocalizacao('Erro ao buscar a cidade.');
@@ -50,7 +55,7 @@ function useCityWeather(cidade) {
   const [erroClima, setErroClima] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+  const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   useEffect(() => {
     if (cidade) {
@@ -59,7 +64,7 @@ function useCityWeather(cidade) {
 
         try {
           const resposta = await fetch(
-            `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${cidade}&lang=pt`
+            `https://api.weatherapi.com/v1/forecast.json?key=${WEATHER_API_KEY}&q=${cidade}&lang=pt`
           );
           const dados = await resposta.json();
 
@@ -122,7 +127,6 @@ function WeatherInfo() {
     return (
       <div className='d-flex justify-content-between w-100 my-3 '>
         <SkeletonTheme baseColor='#b8b8b8' highlightColor='#ccc'>
-          
           <div className='my-auto'>
             <p>
               <Skeleton height={20} />
@@ -131,18 +135,17 @@ function WeatherInfo() {
               <Skeleton height={30} width={100} />
             </h1>
             <p>
-              <Skeleton height={20}/>
+              <Skeleton height={20} />
             </p>
           </div>
-          
+
           <div className='my-auto'>
-            <Skeleton count={4} height={10} width={40}/>
+            <Skeleton count={4} height={10} width={40} />
           </div>
 
           <div className='my-auto'>
-            <Skeleton count={2} height={40} width={100}/>
+            <Skeleton count={2} height={40} width={100} />
           </div>
-
         </SkeletonTheme>
       </div>
     );

@@ -31,7 +31,7 @@ function App() {
 
   return (
     <>
-      <div className='container-fluid'>
+      <div>
         <Navbar title={currentTitle} corTexto={'dark'} to={'/'} />
       </div>
       <Routes>

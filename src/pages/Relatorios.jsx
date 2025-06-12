@@ -2,7 +2,7 @@ import RectanglePart from "../components/RectanglePart";
 import SmallInfo from "../components/infos/SmallInfo";
 import TimeInfo from "../components/infos/TimeInfo";
 import Mensagens from "../javascript/Mensagens";
-import BarGraphic from "../components/BarGraphic";
+import Graphic from "../components/Graphic";
 
 function Relatorios() {
 
@@ -13,14 +13,14 @@ function Relatorios() {
   ];
 
   const dadosPassageiros = [
-    { hora: '08:00', passageiros: 2 },
-    { hora: '10:00', passageiros: 3 },
-    { hora: '12:00', passageiros: 5 },
-    { hora: '14:00', passageiros: 3 },
-    { hora: '16:00', passageiros: 4 },
-    { hora: '18:00', passageiros: 6 },
-    { hora: '20:00', passageiros: 4 },
-    { hora: '21:00', passageiros: 2 },
+    { hora: '08:00', passageiros: 200 },
+    { hora: '10:00', passageiros: 300 },
+    { hora: '12:00', passageiros: 500 },
+    { hora: '14:00', passageiros: 300 },
+    { hora: '16:00', passageiros: 400 },
+    { hora: '18:00', passageiros: 600 },
+    { hora: '20:00', passageiros: 400 },
+    { hora: '21:00', passageiros: 200 },
   ]
 
   return (
@@ -71,7 +71,11 @@ function Relatorios() {
         <div className="col-md-12">
           <h2 className='mx-4 fw-bold'>Passageiros</h2>
             <RectanglePart>
-              <BarGraphic />
+              <Graphic 
+                label={'Nº de passageiros'}
+                barDataKey={'passageiros'}
+                data={dadosPassageiros}
+              />
             </RectanglePart>
         </div>
       </div>

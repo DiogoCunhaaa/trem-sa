@@ -1,9 +1,20 @@
 import RectanglePart from '../components/RectanglePart';
 import RectanglePartInfo from '../components/RectanglePartInfo';
-import BarGraphic from '../components/BarGraphic';
+import Graphic from '../components/Graphic';
 import SquarePart from '../components/SquarePart';
 import SquarePartInfo from '../components/SquarePartInfo';
 import { ProgressBar } from 'react-bootstrap';
+
+const dadosVelocidade = [
+    { hora: '08:00', velocidade: 15 },
+    { hora: '10:00', velocidade: 30 },
+    { hora: '12:00', velocidade: 30 },
+    { hora: '14:00', velocidade: 45 },
+    { hora: '16:00', velocidade: 60 },
+    { hora: '18:00', velocidade: 70 },
+    { hora: '20:00', velocidade: 75 },
+    { hora: '21:00', velocidade: 30 }
+];
 
 function Dashboard() {
   //BARRA DE PROGRESSO COMECINHO DO DASHBOARD
@@ -86,7 +97,11 @@ function Dashboard() {
         <div className='col-md-12'>
           <h2 className='mx-4 fw-bold'>Velocidade</h2>
           <RectanglePart>
-            <BarGraphic />
+            <Graphic 
+              label={'Km/h'}
+              data={dadosVelocidade}
+              barDataKey={'velocidade'}
+            />
           </RectanglePart>
         </div>
       </div>
