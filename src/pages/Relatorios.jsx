@@ -2,7 +2,7 @@ import RectanglePart from "../components/RectanglePart";
 import SmallInfo from "../components/infos/SmallInfo";
 import TimeInfo from "../components/infos/TimeInfo";
 import Mensagens from "../javascript/Mensagens";
-import BarGraphic from "../components/BarGraphic";
+import Graphic from "../components/Graphic";
 
 function Relatorios() {
 
@@ -71,7 +71,7 @@ function Relatorios() {
         <div className="col-md-12">
           <h2 className='mx-4 fw-bold'>Passageiros</h2>
             <RectanglePart>
-              <BarGraphic />
+              <Graphic />
             </RectanglePart>
         </div>
       </div>
