@@ -56,20 +56,30 @@ export default class Mensagens {
         const horarioPartida = new Date(data); //PRA SETAR O HORARIO ALVO DE PARTIDA 
         horarioPartida.setHours(8, 0, 0, 0)//ISSO DEFINE O HORARIO ALVO COMO 8AM
 
-        const diferencaMs = agora.getTime() - horarioPartida.getTime(); //PEGA A DIFERENCA DA HORA SAIDA E AGORA (EM MILISSEGUNDOS)
-        const diferencaMin = Math.round(diferencaMs / 60000); //CONVERTE A DIFERENCA PRA MINUTOS 
+        const diferencaMs = horarioPartida.getTime() - agora.getTime();
+        const diferencaMin = Math.round(Math.abs(diferencaMs) / 60000); //CONVERTE A DIFERENCA PRA MINUTOS 
 
         const horaFormatada = horarioPartida.toLocaleTimeString('pt-BR', {
             hour: '2-digit',
             minute: '2-digit',
         });
 
-        if (diferencaMin > 60 ) {
-            const diferencaHour = Math.round(diferencaMin / 60);
-            return `Horário de partida definido para daqui a ${diferencaHour} horas (${horaFormatada} AM).`
-        }
+        const horas = Math.floor(diferencaMin / 60);
+        const minutos = diferencaMin % 60;
+        const tempoFormatado =
+        (horas > 0 ? `${horas} hora(s)` : '') +
+        (horas > 0 && minutos > 0 ? ' e ' : '') +
+        (minutos > 0 ? `${minutos} min` : '');
 
-        return `Horário de partida definido para daqui a ${diferencaMin} min (${horaFormatada} AM).`;
+        if (diferencaMs < 0) {
+            return `O trem partiu há ${tempoFormatado} (${horaFormatada}).`;
+        } 
+        else if (diferencaMs > 0) {
+            return `Horário de partida definido para daqui a ${tempoFormatado} (${horaFormatada}).`;
+        } 
+        else {
+            return `O trem está partindo agora (${horaFormatada}).`;
+        }
     }
 }
 
