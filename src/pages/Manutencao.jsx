@@ -2,6 +2,7 @@ import RectanglePart from '../components/RectanglePart';
 import ButtonInfo from '../components/infos/ButtonInfo';
 import ManutencaoInfo from '../components/infos/ManutencaoInfo';
 import SmallInfo from '../components/infos/SmallInfo';
+import ButtonManutencao from '../javascript/ButtonManutencao';
 import Mensagens from '../javascript/Mensagens';
 
 function Manutencao() {
@@ -86,6 +87,7 @@ function Manutencao() {
               textColor={'white'}
               buttonTitle={'Solicitar Reboque'}
               backgroundColor={'#b8b8b8'}
+              onClick={() => ButtonManutencao.msg()}
             />
           </RectanglePart>
         </div>
