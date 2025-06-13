@@ -2,6 +2,7 @@ import { useState } from 'react';
 import InputField from './InputField';
 import LoginButton from './LoginButton';
 import ForgotPasswordModal from './ForgotPasswordModal';
+import styles from './LoginForm.module.css';
 
 function LoginForm({ onLoginSuccess }) {
   //VALIDACAO DO FORM
@@ -81,12 +82,21 @@ function LoginForm({ onLoginSuccess }) {
       </div>
 
       <LoginButton whatFor={'LOGIN'} onLoginClick={handleLogin} />
-
+     
       <ForgotPasswordModal
         show={showModal}
         onClose={() => setShowModal(false)}
       />
-    </div>
+      <div className="d-flex align-items-center my-3">
+      <div className="flex-grow-1 border-top"></div>
+      <span className="mx-2 text-muted small">ou</span>
+      <div className="flex-grow-1 border-top"></div>
+      </div>
+
+      <LoginButton whatFor={'CADASTRAR-SE'}/>
+      </div>
+
+      
   );
 }
 
