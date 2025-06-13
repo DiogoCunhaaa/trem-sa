@@ -6,7 +6,7 @@ function Dashboard() {
   const alertasMensagens = [
     {
       id: '1',
-      nome: 'Freio degastado',
+      nome: 'Freio desgastado',
       msg: Mensagens.gerarMensagensAlertaFreio(),
     },
     {

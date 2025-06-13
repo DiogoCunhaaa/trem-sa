@@ -27,7 +27,7 @@ function App() {
     '/cadastropage': 'Cadastro',
   };
 
-  const currentTitle = pageTitles[location.pathname] || 'Pagina';
+  const currentTitle = pageTitles[location.pathname] || 'Login';
 
   return (
     <>
