@@ -24,7 +24,7 @@ function Dashboard() {
 
   return (
     <div className='container' style={{ backgroundColor: '#FBFCF8' }}>
-      <div className='row'>
+      <div className='row mt-3'>
         <div className='col-6'>
           <SquarePart backgroundColor={'black'} corTexto={'white'}>
             <SquarePartInfo title={'Trajeto'} display={'none'} />
