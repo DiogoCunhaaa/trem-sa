@@ -4,6 +4,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 import RectanglePartInfo from '../RectanglePartInfo';
 import CustomButton from '../CustomButton';
+import MudarRotaModal from '../modals/MudarRotaModal';
 
 //TUDO ISSO PRA PEGAR A CIDADE DO USUARIO
 function useCityLocation() {
@@ -13,6 +14,11 @@ function useCityLocation() {
   const OPENCAGE_API_KEY = process.env.REACT_APP_OPENCAGE_API_KEY;
 
   useEffect(() => {
+    if (!OPENCAGE_API_KEY) {
+      setErroLocalizacao('Chave da API de geolocalização não encontrada');
+      return;
+    }
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         async (posicao) => {
@@ -55,9 +61,13 @@ function useCityWeather(cidade) {
   const [erroClima, setErroClima] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-
   useEffect(() => {
+    const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+    if (!WEATHER_API_KEY) {
+      setErroClima('Chave da API do clima não encontrada');
+      return;
+    }
+
     if (cidade) {
       const buscarClima = async () => {
         setIsLoading(true);
@@ -99,6 +109,8 @@ function useCityWeather(cidade) {
 function WeatherInfo() {
   const { cidade, erroLocalizacao } = useCityLocation();
   const { clima, erroClima, isLoading } = useCityWeather(cidade);
+  //MODAL MUDAR ROTA
+  const [showModalMudar, setShowModalMudar] = useState(false);
 
   const getWeatherIcon = (condicao) => {
     const lowerCondition = condicao.toLowerCase();
@@ -151,6 +163,8 @@ function WeatherInfo() {
     );
   }
 
+  //MUDAR ROTA
+
   return (
     <div className='d-flex justify-content-between w-100'>
       <div className='my-auto'>
@@ -195,8 +209,20 @@ function WeatherInfo() {
 
       <div className='my-auto'>
         <CustomButton whatFor={'Pausar Rota'} />
-        <CustomButton whatFor={'Mudar Rota'} />
+        <CustomButton
+          whatFor={'Mudar Rota'}
+          onClick={() => setShowModalMudar(true)}
+        />
       </div>
+
+      <MudarRotaModal
+        show={showModalMudar}
+        onClose={() => setShowModalMudar(false)}
+        onConfirm={(novaRota) => {
+          console.log('rota recebida');
+          setShowModalMudar(false);
+        }}
+      />
     </div>
   );
 }
