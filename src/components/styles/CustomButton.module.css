@@ -11,3 +11,8 @@
     box-sizing: border-box;
     text-align: center;
 }
+
+.customButton:hover {
+    transform: scale(1.01) translateY(-0.2px);
+    box-shadow: 0 8px 16px rgba(105, 105, 105,0.2);
+}

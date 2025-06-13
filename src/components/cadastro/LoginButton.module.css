@@ -13,3 +13,8 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+.customButton:hover {
+  transform: scale(1.001) translateY(-0.2px);
+  box-shadow: 0 8px 16px rgba(211, 211, 211, 0.5);
+}
