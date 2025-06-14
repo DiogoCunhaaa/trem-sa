@@ -5,6 +5,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import RectanglePartInfo from '../RectanglePartInfo';
 import CustomButton from '../CustomButton';
 import MudarRotaModal from '../modals/MudarRotaModal';
+import PausarRotaModal from '../modals/PausarRotaModal';
 
 //TUDO ISSO PRA PEGAR A CIDADE DO USUARIO
 function useCityLocation() {
@@ -111,6 +112,8 @@ function WeatherInfo() {
   const { clima, erroClima, isLoading } = useCityWeather(cidade);
   //MODAL MUDAR ROTA
   const [showModalMudar, setShowModalMudar] = useState(false);
+  //MODAL PAUSAR ROTA
+  const [showModalPausar, setShowModalPausar] = useState(false);
 
   const getWeatherIcon = (condicao) => {
     const lowerCondition = condicao.toLowerCase();
@@ -208,7 +211,10 @@ function WeatherInfo() {
       </div>
 
       <div className='my-auto'>
-        <CustomButton whatFor={'Pausar Rota'} />
+        <CustomButton
+          whatFor={'Pausar Rota'}
+          onClick={() => setShowModalPausar(true)}
+        />
         <CustomButton
           whatFor={'Mudar Rota'}
           onClick={() => setShowModalMudar(true)}
@@ -219,8 +225,17 @@ function WeatherInfo() {
         show={showModalMudar}
         onClose={() => setShowModalMudar(false)}
         onConfirm={(novaRota) => {
-          console.log('rota recebida');
+          console.log('Nova rota recebida');
           setShowModalMudar(false);
+        }}
+      />
+
+      <PausarRotaModal
+        show={showModalPausar}
+        onClose={() => setShowModalPausar(false)}
+        onConfirm={() => {
+          console.log('A rota esta pausada');
+          setShowModalPausar(false);
         }}
       />
     </div>
