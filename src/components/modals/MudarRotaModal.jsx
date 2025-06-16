@@ -1,64 +1,83 @@
 import { useState } from 'react';
 import styles from '../cadastro/ForgotPasswordModal.module.css';
+import { motion } from 'framer-motion';
 
 function MudarRotaModal({ show, onClose, onConfirm }) {
   const [novaRota, setNovaRota] = useState('');
 
   if (!show) return null;
 
-  const handleSubmit = () => {
-    if (novaRota.trim() !== '') {
-      onConfirm(novaRota);
-      setNovaRota('');
-      onClose();
-    }
-  };
-
   return (
     <div
-      className='modal d-flex justify-content-center align-items-center'
-      style={{ backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 9999 }}
+      className='modal-overlay'
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0,0,0,0.6)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 9999,
+      }}
     >
-      <div className='modal-dialog'>
-        <div className='modal-content'>
-          <div className='modal-header'>
-            <h5 className='modal-title'>Mudar Rota do Trem</h5>
-            <button
-              type='button'
-              className='btn-close'
-              onClick={onClose}
-            ></button>
-          </div>
-          <div className='modal-body'>
-            <label htmlFor='novaRota' className='form-label'>
-              Nova Estação Destino:{' '}
-            </label>
+      <motion.div
+        className='modal-card'
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        style={{
+          background: '#fff',
+          borderRadius: '16px',
+          padding: '2rem',
+          maxWidth: '400px',
+          boxShadow: '0 0 20px rgba(0,0,0,0.2)',
+        }}
+      >
+        <h4 className='text-center mt-3 text-danger fw-bold'>Mudar Rota</h4>
+        <p className='text-center mt-2'>
+          Digite a <strong>nova</strong> estacao destino:
+        </p>
+
+        <div>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              onConfirm(novaRota);
+            }}
+          >
             <input
               type='text'
               id='novaRota'
               className={`w-100 ${styles.customInput}`}
-              placeholder='Ex: Estação Floresta'
+              placeholder='Ex: Floresta'
               value={novaRota}
               onChange={(e) => setNovaRota(e.target.value)}
+              required
+              autoFocus
             />
-          </div>
-          <div className='modal-footer'>
-            <button
-              className={`custom-button ${styles.customButton}`}
-              onClick={onClose}
-            >
-              Cancelar
-            </button>
-            <button
-              className={`custom-button ${styles.customButton}`}
-              style={{ backgroundColor: '#000000', color: '#ffffff' }}
-              onClick={onConfirm}
-            >
-              Confirmar Nova Rota
-            </button>
-          </div>
+            <div className='d-flex justify-content-between mt-4 gap-2'>
+              <button
+                type='button'
+                className={`custom-button ${styles.customButton}`}
+                onClick={onClose}
+              >
+                Cancelar
+              </button>
+              <button
+                type='submit'
+                className={`custom-button ${styles.customButton}`}
+                style={{ backgroundColor: '#000000', color: '#ffffff' }}
+              >
+                Confirmar Nova Rota
+              </button>
+            </div>
+          </form>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

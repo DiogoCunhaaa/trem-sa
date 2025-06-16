@@ -1,6 +1,6 @@
 import styles from './styles/SquarePart.module.css'
 
-function SquarePartTest({ backgroundColor, children, corTexto, flex }) {
+function SquarePart({ backgroundColor, children, corTexto, flex }) {
     return (
         <div className="h-100">
             <div className={styles.square} style={{ backgroundColor, color: corTexto }}>
@@ -12,5 +12,5 @@ function SquarePartTest({ backgroundColor, children, corTexto, flex }) {
     );
 }
 
-export default SquarePartTest;
+export default SquarePart;
 
