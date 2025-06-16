@@ -1,4 +1,4 @@
-import RectanglePart from '../components/RectanglePart';
+import RectanglePart from '../components/RectanglePartAlerta';
 import AlertasInfo from '../components/infos/AlertasInfo';
 import Mensagens from '../javascript/Mensagens';
 
