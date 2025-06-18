@@ -13,6 +13,7 @@ Uma aplicação de SA com o intuito de aprimorar nossas conhecimentos na matéri
 - 🔗 [React Router DOM](https://reactrouter.com/) — Navegação entre páginas.
 - 📈 [Recharts](https://recharts.org/) — Biblioteca de gráficos para React.
 - 💀 Skeleton Loading — Biblioteca de carregamentos esqueletos.
+- ⏩ [Motion](https://motion.dev/) — Web animations for react.
 - 🌐 Fetch API — Consumo de APIs.
 
 ---
