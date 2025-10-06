@@ -37,8 +37,20 @@ function CadastroForm() {
       </div>
       <div className='row mt-2'>
         <InputField
-          whatFor={'Email'}
+          whatFor={'CPF'}
           //onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <div className='row mt-2'>
+        <InputField
+          whatFor={'CNH'}
+          //onChange={(e) => setSenha(e.target.value)}
+        />
+      </div>
+      <div className='row mt-2'>
+        <InputField
+          whatFor={'Email'}
+          //onChange={(e) => setSenha(e.target.value)}
         />
       </div>
       <div className='row mt-2'>
