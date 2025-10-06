@@ -1,0 +1,81 @@
+/* Botão hamburguer */
+.menuBtn {
+  position: fixed;
+  top: 15px;
+  right: 15px; /* botão no canto direito agora */
+  background: #f5f5f5;
+  color: #000;
+  border: none;
+  padding: 5px 14px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1002;
+  transition: background 0.3s;
+}
+
+.menuBtn:hover {
+  background:#d1d5db;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px; /* começa fora da tela */
+  width: 250px;
+  height: 100%;
+  background: #979797;
+  color: black;
+  padding: 20px;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.4);
+  transition: right 0.3s ease;
+  z-index: 1001;
+}
+
+.open {
+  right: 0; /* aparece na direita */
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+}
+
+.sidebar a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  transition: color 0.2s, background 0.2s;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.sidebar a:hover {
+  color: #fff;
+  background: #696969;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* fundo escuro */
+  z-index: 1000; /* abaixo do botão e da sidebar */
+}
