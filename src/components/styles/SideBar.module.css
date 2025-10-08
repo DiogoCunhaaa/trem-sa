@@ -25,7 +25,7 @@
   right: -250px; /* começa fora da tela */
   width: 250px;
   height: 100%;
-  background: #979797;
+  background: #f5f5f5;
   color: black;
   padding: 20px;
   box-shadow: -2px 0 8px rgba(0,0,0,0.4);
@@ -65,8 +65,8 @@
 }
 
 .sidebar a:hover {
-  color: #fff;
-  background: #696969;
+  color: black;
+  background: #dcdcdc;
 }
 
 /* Overlay */

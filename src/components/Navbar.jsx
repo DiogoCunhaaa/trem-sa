@@ -68,7 +68,7 @@ function Navbar(props) {
                 <li><a href="/sensores">Sensores</a></li>
                 <li><a href="#">Trens</a></li>
                 <li><a href="#">Usuários</a></li>
-                <li><a href="#">Perfil</a></li>
+                <li><a href="/perfil">Perfil</a></li>
               </ul>
             </div>
           </div>

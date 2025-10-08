@@ -12,7 +12,8 @@ import Alertas from './pages/Alertas';
 import HomeMenu from './components/homepage/HomeMenu';
 import LoginPage from './pages/LoginPage';
 import CadastroPage from './pages/CadastroPage';
-import Sensores from './pages/Sensores'
+import Sensores from './pages/Sensores';
+import Perfil from './pages/Perfil';
 
 function App() {
   const location = useLocation();
@@ -26,7 +27,8 @@ function App() {
     '/alertas': 'Alertas e Notificações',
     '/loginpage': 'Login',
     '/cadastropage': 'Cadastro',
-    '/sensores' : 'Sensores'
+    '/sensores' : 'Sensores' , 
+    '/perfil' : 'Perfil'
   };
 
   const currentTitle = pageTitles[location.pathname] || 'Login';
@@ -94,6 +96,14 @@ function App() {
         element={
           <PrivateRoute>
             <Sensores/>
+          </PrivateRoute>
+        }
+        />
+        <Route
+        path='/perfil'
+        element={
+          <PrivateRoute>
+            <Perfil/>
           </PrivateRoute>
         }
         />
