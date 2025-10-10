@@ -66,7 +66,7 @@ function Navbar(props) {
                 <li><a href="/cadastropage">Cadastrar-se</a></li>
                 <li><a href="/loginpage">Login</a></li>
                 <li><a href="/sensores">Sensores</a></li>
-                <li><a href="#">Trens</a></li>
+                <li><a href="/trens">Trens</a></li>
                 <li><a href="#">Usuários</a></li>
                 <li><a href="/perfil">Perfil</a></li>
               </ul>

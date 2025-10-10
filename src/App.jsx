@@ -14,6 +14,7 @@ import LoginPage from './pages/LoginPage';
 import CadastroPage from './pages/CadastroPage';
 import Sensores from './pages/Sensores';
 import Perfil from './pages/Perfil';
+import Trens from './pages/Trens';
 
 function App() {
   const location = useLocation();
@@ -28,7 +29,8 @@ function App() {
     '/loginpage': 'Login',
     '/cadastropage': 'Cadastro',
     '/sensores' : 'Sensores' , 
-    '/perfil' : 'Perfil'
+    '/perfil' : 'Perfil' ,
+    '/trens' : 'Trens' 
   };
 
   const currentTitle = pageTitles[location.pathname] || 'Login';
@@ -107,6 +109,15 @@ function App() {
           </PrivateRoute>
         }
         />
+        <Route
+        path='/trens'
+        element={
+          <PrivateRoute>
+            <Trens/>
+          </PrivateRoute>
+        }
+        />
+
         <Route path='/loginpage' element={<LoginPage />} />
         <Route path='/cadastropage' element={<CadastroPage />} />
       </Routes>
