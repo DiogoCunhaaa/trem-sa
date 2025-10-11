@@ -18,6 +18,7 @@ import Trens from './pages/Trens';
 import Rotas from './pages/Rotas';
 import Manutencaocrud from './pages/Manutencaocrud';
 import Notificacoes from './pages/Notificacoes';
+import Relatorioscrud from './pages/Relatorioscrud';
 
 function App() {
   const location = useLocation();
@@ -36,7 +37,8 @@ function App() {
     '/trens' : 'Trens' ,
     '/rotas' : 'Rotas' ,
     '/manutencaocrud' : 'Manutenção' ,
-    '/notificacoes' : 'Notificações'
+    '/notificacoes' : 'Notificações',
+    '/relatorioscrud' : 'Relatórios'
   };
 
   const currentTitle = pageTitles[location.pathname] || 'Login';
@@ -147,7 +149,15 @@ function App() {
           </PrivateRoute>
         }
         />
-
+        
+        <Route
+        path='/relatorioscrud'
+        element={
+          <PrivateRoute>
+            <Relatorioscrud/>
+          </PrivateRoute>
+        }
+        />
         <Route path='/loginpage' element={<LoginPage />} />
         <Route path='/cadastropage' element={<CadastroPage />} />
       </Routes>
