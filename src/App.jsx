@@ -16,6 +16,7 @@ import Sensores from './pages/Sensores';
 import Perfil from './pages/Perfil';
 import Trens from './pages/Trens';
 import Rotas from './pages/Rotas';
+import Manutencaocrud from './pages/Manutencaocrud';
 
 function App() {
   const location = useLocation();
@@ -32,7 +33,8 @@ function App() {
     '/sensores' : 'Sensores' , 
     '/perfil' : 'Perfil' ,
     '/trens' : 'Trens' ,
-    '/rotas' : 'Rotas'  
+    '/rotas' : 'Rotas' ,
+    '/manutencaocrud' : 'Manutenção'
   };
 
   const currentTitle = pageTitles[location.pathname] || 'Login';
@@ -124,6 +126,14 @@ function App() {
         element={
           <PrivateRoute>
             <Rotas/>
+          </PrivateRoute>
+        }
+        />
+         <Route
+        path='/manutencaocrud'
+        element={
+          <PrivateRoute>
+            <Manutencaocrud/>
           </PrivateRoute>
         }
         />

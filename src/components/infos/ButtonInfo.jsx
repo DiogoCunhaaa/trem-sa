@@ -2,7 +2,7 @@ import CustomButton from '../CustomButton';
 
 function ButtonInfo({ title, buttonTitle, backgroundColor, textColor, onClick}) {
   return (
-    <div className='mx-auto '>
+    <div className='mx-auto'>
       <h1 className='fs-5 fw-bold text-center' style={{ color: textColor }}>
         {title}
       </h1>
