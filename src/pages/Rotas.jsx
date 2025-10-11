@@ -1,55 +1,55 @@
 import RectanglePart from '../components/RectanglePart';
-import SensoresInfo from '../components/infos/SensoresInfo';
-import ButtonSensores from '../javascript/ButtonManutencao';
+import ButtonRotas from '../javascript/ButtonRotas';
 import ButtonInfo from '../components/infos/ButtonInfo';
 
-function Sensores(){
+function Rotas(){
     return(
-        <div className="container">
-            <div className="row mt-3">
+        <div class="container">
+                       <div className="row mt-3">
                 <div className="col-6">
                     <RectanglePart backgroundColor = {'black'}> 
                         <ButtonInfo
-                            title={'Adicione seu sensor'}
+                            title={'Adicionar a rota'}
                             textColor={'white'}
-                            buttonTitle={'Adicionar sensor'}
+                            buttonTitle={'Adicionar rota'}
                             backgroundColor={'#b8b8b8'}
-                            onClick={() => ButtonSensores.add()}
+                            onClick={() => ButtonRotas.add()}
                             />
                     </RectanglePart>
                 </div>
                 <div className="col-6">
-                    <RectanglePart backgroundColor = {'black'}> 
+                    <RectanglePart backgroundColor = {''}> 
                         <ButtonInfo
-                            title={'Remova seu sensor'}
-                            textColor={'white'}
-                            buttonTitle={'Remover sensor'}
+                            title={'Remover a rota'}
+                            textColor={'black'}
+                            buttonTitle={'Remover rota'}
                             backgroundColor={'#b8b8b8'}
-                            onClick={() => ButtonSensores.remove()}
+                            onClick={() => ButtonRotas.remove()}
                             />
                     </RectanglePart>
                 </div>
             </div>
                 <div className="row mt-3">
                     <div className="col-6">
-                        <RectanglePart backgroundColor = {''}> 
+                        <RectanglePart backgroundColor = {'black'}> 
                             <ButtonInfo
-                                title={'Editar seu sensor'}
-                                textColor={'black'}
-                                buttonTitle={'Editar sensor'}
+                                title={'Editar a rota'}
+                                textColor={'white'}
+                                buttonTitle={'Editar rota'}
                                 backgroundColor={'#b8b8b8'}
-                                onClick={() => ButtonSensores.edit()}
+                                onClick={() => ButtonRotas.edit()}
                             />
                         </RectanglePart>
+                        
                     </div>
                     <div className="col-6">
                         <RectanglePart backgroundColor = {''}> 
                             <ButtonInfo
-                                title={'Ver sensores'}
+                                title={'Ver rotas criadas'}
                                 textColor={'black'}
-                                buttonTitle={'Ver '}
+                                buttonTitle={'Ver rotas'}
                                 backgroundColor={'#b8b8b8'}
-                                onClick={() => ButtonSensores.read()}
+                                onClick={() => ButtonRotas.read()}
                             />
                         </RectanglePart>
                         
@@ -60,4 +60,4 @@ function Sensores(){
     )
 }
 
-export default Sensores;
+export default Rotas;
