@@ -17,6 +17,7 @@ import Perfil from './pages/Perfil';
 import Trens from './pages/Trens';
 import Rotas from './pages/Rotas';
 import Manutencaocrud from './pages/Manutencaocrud';
+import Notificacoes from './pages/Notificacoes';
 
 function App() {
   const location = useLocation();
@@ -34,7 +35,8 @@ function App() {
     '/perfil' : 'Perfil' ,
     '/trens' : 'Trens' ,
     '/rotas' : 'Rotas' ,
-    '/manutencaocrud' : 'Manutenção'
+    '/manutencaocrud' : 'Manutenção' ,
+    '/notificacoes' : 'Notificações'
   };
 
   const currentTitle = pageTitles[location.pathname] || 'Login';
@@ -134,6 +136,14 @@ function App() {
         element={
           <PrivateRoute>
             <Manutencaocrud/>
+          </PrivateRoute>
+        }
+        />
+        <Route
+        path='/notificacoes'
+        element={
+          <PrivateRoute>
+            <Notificacoes/>
           </PrivateRoute>
         }
         />

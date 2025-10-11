@@ -69,7 +69,7 @@ function Navbar(props) {
                 <li><a href="/trens">Trens</a></li>
                 <li><a href="/manutencaocrud">Manutenção</a></li>
                 <li><a href="/perfil">Perfil</a></li>
-                 <li><a href="/rotas">Rotas</a></li>
+                 <li><a href="/notificacoes">Notificações</a></li>
                   <li><a href="/perfil">Perfil</a></li>
               </ul>
             </div>
