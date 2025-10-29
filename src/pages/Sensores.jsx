@@ -2,8 +2,20 @@ import RectanglePart from '../components/RectanglePart';
 import SensoresInfo from '../components/infos/SensoresInfo';
 import ButtonSensores from '../javascript/ButtonManutencao';
 import ButtonInfo from '../components/infos/ButtonInfo';
+import { useState } from 'react';
 
 function Sensores(){
+
+    const [showInput, setShowInput] = useState(false);
+    const [value, setValue] = useState('');
+
+    const handleClick = () => setShowInput("showInput");
+
+    const handleConfirm = () => {
+        if (onConfirm) onConfirm(value);
+        setValue('');
+        setShowInput(false);
+    }
     return(
         <div className="container">
             <div className="row mt-3">
