@@ -6,13 +6,29 @@ import styles from './LoginForm.module.css';
 
 function LoginForm({ onLoginSuccess }) {
   //VALIDACAO DO FORM
-  const [usuario, setUsuario] = useState('');
+  const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [logado, setLogado] = useState(false);
   const [erro, setErro] = useState('');
 
+  async function login() {
+    const API_URL = 'http://localhost:3333';
+
+    const res = await fetch(`${API_URL}/api/users/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email_usuario: email,
+        senha_usuario: senha,
+      }),
+    });
+
+    const resultado = await res.json();
+    alert(resultado.message || resultado.error);
+  }
+
   const handleLogin = () => {
-    if (usuario === 'admin' && senha === 'admin') {
+    if (email === 'admin' && senha === 'admin') {
       setErro('');
       onLoginSuccess();
       console.log('Logou com sucesso!!!');
@@ -42,9 +58,9 @@ function LoginForm({ onLoginSuccess }) {
 
       <div className='row mt-2'>
         <InputField
-          whatFor={'Usuário'}
-          whatValue={usuario}
-          onChange={(e) => setUsuario(e.target.value)}
+          whatFor={'Email'}
+          whatValue={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div className='row'>
@@ -81,22 +97,20 @@ function LoginForm({ onLoginSuccess }) {
         </div>
       </div>
 
-      <LoginButton whatFor={'LOGIN'} onLoginClick={handleLogin} />
-     
+      <button onClick={login} className={`${styles.customButton}`}>LOGIN</button>
+
       <ForgotPasswordModal
         show={showModal}
         onClose={() => setShowModal(false)}
       />
-      <div className="d-flex align-items-center my-3">
-      <div className="flex-grow-1 border-top"></div>
-      <span className="mx-2 text-muted small">ou</span>
-      <div className="flex-grow-1 border-top"></div>
+      <div className='d-flex align-items-center my-3'>
+        <div className='flex-grow-1 border-top'></div>
+        <span className='mx-2 text-muted small'>ou</span>
+        <div className='flex-grow-1 border-top'></div>
       </div>
 
-      <LoginButton whatFor={'CADASTRAR-SE'}/>
-      </div>
-
-      
+      <LoginButton whatFor={'CADASTRAR-SE'} />
+    </div>
   );
 }
 

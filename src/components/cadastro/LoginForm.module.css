@@ -17,3 +17,21 @@
   font-size: 14px;
   font-weight: 500;
 }
+
+
+.customButton {
+  background-color: #979797;
+  border: none;
+  border-radius: 50px;
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: x-large;
+  width: 100%;
+  box-sizing: border-box;
+}
+
