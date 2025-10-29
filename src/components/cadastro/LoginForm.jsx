@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import InputField from './InputField';
 import LoginButton from './LoginButton';
 import ForgotPasswordModal from './ForgotPasswordModal';
@@ -8,38 +9,40 @@ function LoginForm({ onLoginSuccess }) {
   //VALIDACAO DO FORM
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [logado, setLogado] = useState(false);
   const [erro, setErro] = useState('');
-
-  async function login() {
-    const API_URL = 'http://localhost:3333';
-
-    const res = await fetch(`${API_URL}/api/users/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email_usuario: email,
-        senha_usuario: senha,
-      }),
-    });
-
-    const resultado = await res.json();
-    alert(resultado.message || resultado.error);
-  }
-
-  const handleLogin = () => {
-    if (email === 'admin' && senha === 'admin') {
-      setErro('');
-      onLoginSuccess();
-      console.log('Logou com sucesso!!!');
-    } else {
-      localStorage.setItem('loggedIn', 'false');
-      setErro('Usuário ou senha incorretos');
-    }
-  };
-
   //MOSTRAR MODAL DO ESQUECI MINHA SENHA
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
+  async function login() {
+    try {
+      const API_URL = 'http://localhost:3333';
+
+      const res = await fetch(`${API_URL}/api/users/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email_usuario: email,
+          senha_usuario: senha,
+        }),
+      });
+
+      const resultado = await res.json();
+
+      if (res.ok) {
+        alert(resultado.message || 'Login realizado com sucesso');
+        localStorage.setItem('loggedIn', 'true');
+        onLoginSuccess?.();
+        navigate('/');
+      } else {
+        setErro(resultado.error || 'Erro ao fazer login.');
+        alert(resultado.error || 'Usuário ou senha incorretos.');
+      }
+    } catch (err) {
+      console.log(err);
+      alert('Erro ao conectar com o servidor.');
+    }
+  }
 
   return (
     <div className='container'>
@@ -97,7 +100,9 @@ function LoginForm({ onLoginSuccess }) {
         </div>
       </div>
 
-      <button onClick={login} className={`${styles.customButton}`}>LOGIN</button>
+      <button onClick={login} className={`${styles.customButton}`}>
+        LOGIN
+      </button>
 
       <ForgotPasswordModal
         show={showModal}
