@@ -1,6 +1,6 @@
 import styles from './InputField.module.css';
 
-function InputField({ whatFor, whatValue, onChange }) {
+function InputField({ whatFor, whatValue, onChange, id }) {
   const label = whatFor.toLowerCase();
 
   // Ícones apenas para os campos da sua imagem
@@ -26,9 +26,7 @@ function InputField({ whatFor, whatValue, onChange }) {
     : 'text';
 
   //  Encontra o ícone correspondente
-  const matchedKey = Object.keys(iconMap).find((key) =>
-    label.includes(key)
-  );
+  const matchedKey = Object.keys(iconMap).find((key) => label.includes(key));
 
   const iconClass = iconMap[matchedKey] || 'bi-pencil';
 
@@ -39,6 +37,7 @@ function InputField({ whatFor, whatValue, onChange }) {
           <i className={`bi ${iconClass}`}></i>
         </div>
         <input
+          id={id}
           type={inputType}
           placeholder={whatFor}
           value={whatValue}
