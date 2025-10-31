@@ -1,15 +1,17 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import InputField from './InputField';
 import LoginButton from './LoginButton';
 import styles from './CadastroForm.module.css';
 
-function CadastroForm() {
+function CadastroForm({ onLoginSuccess }) {
   const [usuario, setUsuario] = useState('');
   const [CPF, setCPF] = useState('');
   const [CNH, setCNH] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
+  const navigate = useNavigate();
 
   async function adicionarUsuario() {
     try {
@@ -33,7 +35,13 @@ function CadastroForm() {
       });
 
       const resultado = await res.json();
-      alert(resultado.message || resultado.error);
+
+      if (res.ok) {
+        alert(resultado.message || 'Cadastro realizado com sucesso');
+        localStorage.setItem('loggedIn', 'true');
+        onLoginSuccess?.();
+        navigate('/');
+      }
     } catch (err) {
       console.error(err);
       alert('Erro ao conectar com o servidor.');

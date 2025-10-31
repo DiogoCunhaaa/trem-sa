@@ -11,11 +11,11 @@ function Sensores(){
 
     const handleClick = () => setShowInput("showInput");
 
-    const handleConfirm = () => {
-        if (onConfirm) onConfirm(value);
-        setValue('');
-        setShowInput(false);
-    }
+    //const handleConfirm = () => {
+    //    if (onConfirm) onConfirm(value);
+    //    setValue('');
+    //    setShowInput(false);
+    //}
     return(
         <div className="container">
             <div className="row mt-3">
