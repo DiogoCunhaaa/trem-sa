@@ -1,4 +1,14 @@
 function Perfil() {
+
+  try {
+    const API_URL = 'http://localhost:3333';
+
+
+  } catch(err) {
+    console.error(err);
+    alert('Erro ao conectar com o servidor.');
+  }
+
   return (
     <div className="container">
       <div>
