@@ -21,6 +21,7 @@ function LoginForm({ onLoginSuccess }) {
       const res = await fetch(`${API_URL}/api/users/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({
           email_usuario: email,
           senha_usuario: senha,
@@ -32,6 +33,11 @@ function LoginForm({ onLoginSuccess }) {
       if (res.ok) {
         alert(resultado.message || 'Login realizado com sucesso');
         localStorage.setItem('loggedIn', 'true');
+        sessionStorage.setItem('user',JSON.stringify(resultado.user));
+        
+        const user = JSON.parse(sessionStorage.getItem('user'));
+        console.log(user);
+        
         onLoginSuccess?.();
         navigate('/');
       } else {
