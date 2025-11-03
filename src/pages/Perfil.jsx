@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import styles from '../components/cadastro/InputField.module.css';
 
 function Perfil() {
   const user = JSON.parse(sessionStorage.getItem('user'));
@@ -20,30 +20,29 @@ function Perfil() {
       </div>
 
       <div className='center shadow p-4 mb-3 bg-body rounded d-flex justify-content-between align-items-center'>
-        <span>Seu nome de usuário é <strong>{user.nome}</strong></span>
-        <input
-          type='text'
-          placeholder='Alterar nome usuário'
-          className='form-control w-50'
-        />
+        <span>
+          Seu nome de usuário é <strong>{user.nome}.</strong>
+        </span>
+
+        <div className={`${styles.customInput} w-50`}>
+          <input type='text' placeholder='Alterar nome de usuário' />
+        </div>
       </div>
 
       <div className='center shadow p-4 mb-3 bg-body rounded d-flex justify-content-between align-items-center'>
-        <span>Seu e-mail é <strong>{user.email}</strong></span>
-        <input
-          type='text'
-          placeholder='Alterar email'
-          className='form-control w-50'
-        />
+        <span>
+          Seu e-mail é <strong>{user.email}</strong>
+        </span>
+        <div className={`${styles.customInput} w-50`}>
+          <input type='text' placeholder='Alterar email' />
+        </div>
       </div>
 
       <div className='center shadow p-4 mb-5 bg-body rounded d-flex justify-content-between align-items-center'>
         <span>Sua senha é "*****"</span>
-        <input
-          type='text'
-          placeholder='Alterar senha'
-          className='form-control w-50'
-        />
+        <div className={`${styles.customInput} w-50`}>
+          <input type='text' placeholder='Alterar senha' />
+        </div>
       </div>
     </div>
   );
