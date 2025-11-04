@@ -40,6 +40,7 @@ function CadastroForm({ onLoginSuccess }) {
       if (res.ok) {
         alert(resultado.message || 'Cadastro realizado com sucesso');
         localStorage.setItem('loggedIn', 'true');
+        sessionStorage.setItem('user', JSON.stringify(resultado.user));
         onLoginSuccess?.();
         navigate('/');
       }

@@ -33,7 +33,7 @@ function LoginForm({ onLoginSuccess }) {
       if (res.ok) {
         alert(resultado.message || 'Login realizado com sucesso');
         localStorage.setItem('loggedIn', 'true');
-        sessionStorage.setItem('user',JSON.stringify(resultado.user));
+        sessionStorage.setItem('user', JSON.stringify(resultado.user));
         
         const user = JSON.parse(sessionStorage.getItem('user'));
         console.log(user);
