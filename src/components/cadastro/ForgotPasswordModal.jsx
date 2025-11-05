@@ -19,17 +19,6 @@ function ForgotPasswordModal({ show, onClose }) {
       setIsSubmitting(true);
       const API_URL = 'http://localhost:3333';
       
-      // Para fins de demonstração, vamos simular o envio da senha
-      // Em um ambiente real, isso seria feito pelo backend
-      setTimeout(() => {
-        // Simulando uma resposta de sucesso
-        alert(`Senha enviada com sucesso para o email: ${trimmed}`);
-        onClose();
-        setIsSubmitting(false);
-      }, 1500);
-      
-      // Código comentado para quando o backend estiver pronto
-      /*
       const res = await fetch(`${API_URL}/api/users/forgot-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -38,15 +27,15 @@ function ForgotPasswordModal({ show, onClose }) {
 
       const resultado = await res.json();
       if (res.ok) {
-        alert(resultado.message || 'Enviamos sua senha cadastrada para seu email.');
+        alert(resultado.message || 'Nova senha enviada para seu email com sucesso!');
         onClose();
       } else {
         alert(resultado.error || 'Não foi possível enviar a senha. Verifique o email e tente novamente.');
       }
-      */
     } catch (err) {
       console.error(err);
       alert('Erro ao conectar com o servidor.');
+    } finally {
       setIsSubmitting(false);
     }
   }
