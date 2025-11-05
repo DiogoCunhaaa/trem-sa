@@ -25,6 +25,7 @@ function CadastroForm({ onLoginSuccess }) {
       const res = await fetch(`${API_URL}/api/users/create`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({
           email_usuario: email,
           nome_usuario: usuario,
@@ -39,6 +40,7 @@ function CadastroForm({ onLoginSuccess }) {
       if (res.ok) {
         alert(resultado.message || 'Cadastro realizado com sucesso');
         localStorage.setItem('loggedIn', 'true');
+        sessionStorage.setItem('user', JSON.stringify(resultado.user));
         onLoginSuccess?.();
         navigate('/');
       }
