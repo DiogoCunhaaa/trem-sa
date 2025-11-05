@@ -7,10 +7,10 @@ function ForgotPasswordModal({ show, onClose }) {
 
   if (!show) return null;
 
-  async function handleSubmit(e) {
+  async function forgotPassword(e) {
     e?.preventDefault();
-    const trimmed = email.trim();
-    if (!trimmed) {
+    const email_trimmed = email.trim();
+    if (!email_trimmed) {
       alert('Por favor, informe um email.');
       return;
     }
@@ -22,7 +22,7 @@ function ForgotPasswordModal({ show, onClose }) {
       const res = await fetch(`${API_URL}/api/users/forgot-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email_usuario: trimmed }),
+        body: JSON.stringify({ email_usuario: email_trimmed }),
       });
 
       const resultado = await res.json();
@@ -49,7 +49,7 @@ function ForgotPasswordModal({ show, onClose }) {
             <button type="button" className="btn-close" onClick={onClose} disabled={isSubmitting}></button>
           </div>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={forgotPassword}>
             <div className="modal-body">
               <label htmlFor="resetEmail" className='form-label'>Digite seu email:</label>
               <input
