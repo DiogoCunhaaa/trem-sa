@@ -1,7 +1,19 @@
 import styles from '../components/cadastro/InputField.module.css';
+import ButtonInfo from '../components/infos/ButtonInfo';
 
 function Perfil() {
+
+    const handleConfirmacao = () => {
+      const isConfirmed = window.confirm("Tem certeza que deseja continuar?");
+
+      if (isConfirmed){
+        alert("Ação confirmada!");
+      } else {
+        alert("Ação cancelada.");
+      }
+    }
   const user = JSON.parse(sessionStorage.getItem('user'));
+
 
   return (
     <div className='container'>
@@ -44,6 +56,9 @@ function Perfil() {
           <input type='text' placeholder='Alterar senha' />
         </div>
       </div>
+       <button onClick={handleConfirmacao} className={`${styles.customButton}`}>
+        CONFIRMAR ALTERAÇÕES
+      </button>
     </div>
   );
 }
