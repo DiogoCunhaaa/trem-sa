@@ -47,6 +47,7 @@ function PedidosInfo({ trem }) {
       </div>
 
       <EditarTrensModal
+        trem_id={trem.id}
         show={showModalEditarTrens}
         onClose={() => setShowModalEditarTrens(false)}
         onConfirm={() => {
@@ -55,13 +56,13 @@ function PedidosInfo({ trem }) {
         }}
       />
 
-      <ExcluirTrensModal 
-      show={showModalExcluirTrens}
-      onClose={() => setShowModalExcluirTrens(false)}
-      onConfirm={() => {
-        console.log('Trem Exluido');
-        setShowModalExcluirTrens(false);
-      }}
+      <ExcluirTrensModal
+        show={showModalExcluirTrens}
+        onClose={() => setShowModalExcluirTrens(false)}
+        onConfirm={() => {
+          console.log('Trem Exluido');
+          setShowModalExcluirTrens(false);
+        }}
       />
     </div>
   );

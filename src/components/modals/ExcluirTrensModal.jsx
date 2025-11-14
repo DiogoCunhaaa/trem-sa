@@ -1,8 +1,28 @@
 import styles from '../cadastro/ForgotPasswordModal.module.css';
 import { motion } from 'framer-motion';
 
-export default function ExluirTrensModal({ show, onClose, onConfirm }) {
+export default function ExluirTrensModal({ show, onClose, onConfirm, trem_id }) {
   if (!show) return null;
+
+  async function excluirTrem() {
+    try {
+      const API_URL = 'http://localhost:3333';
+
+      const res = await fetch(`${API_URL}/api/trains/delete:${trem_id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      const resultado = await res.json();
+
+      if (res.ok) {
+        alert(resultado.message || 'Trem excluido com sucesso.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Erro ao conectar com o servidor.');
+    }
+  }
 
   return (
     <div
@@ -35,7 +55,7 @@ export default function ExluirTrensModal({ show, onClose, onConfirm }) {
         }}
       >
         <h4 className='text-center text-danger fw-bold'>Excluir Trem</h4>
-        <p className= 'text-center mt-2'>
+        <p className='text-center mt-2'>
           Tem certeza que deseja <strong>excluir</strong> o trem?
         </p>
 
@@ -49,7 +69,10 @@ export default function ExluirTrensModal({ show, onClose, onConfirm }) {
           <button
             className={`custom-button ${styles.customButton}`}
             style={{ backgroundColor: '#000000', color: '#ffffff' }}
-            onClick={onConfirm}
+            onClick={async () => {
+                await excluirTrem();
+                onConfirm();
+            }}
           >
             Excluir
           </button>
