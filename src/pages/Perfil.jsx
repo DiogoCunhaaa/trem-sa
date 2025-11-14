@@ -1,5 +1,4 @@
 import styles from '../components/cadastro/InputField.module.css';
-import ButtonInfo from '../components/infos/ButtonInfo';
 
 function Perfil() {
 

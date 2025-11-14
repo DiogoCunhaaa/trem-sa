@@ -1,63 +1,30 @@
 import RectanglePart from '../components/RectanglePart';
 import ButtonTrens from '../javascript/ButtonManutencao';
 import ButtonInfo from '../components/infos/ButtonInfo';
+import styles from '../components/cadastro/InputField.module.css';
+import TrensInfo from '../components/infos/TrensInfo';
 
-function Trens(){
-    return(
-        <div class="container">
-                       <div className="row mt-3">
-                <div className="col-6">
-                    <RectanglePart backgroundColor = {''}> 
-                        <ButtonInfo
-                            title={'Adicione o trem'}
-                            textColor={'black'}
-                            buttonTitle={'Adicionar trem'}
-                            backgroundColor={'#b8b8b8'}
-                            onClick={() => ButtonTrens.add()}
-                            />
-                    </RectanglePart>
-                </div>
-                <div className="col-6">
-                    <RectanglePart backgroundColor = {'black'}> 
-                        <ButtonInfo
-                            title={'Remova o trem'}
-                            textColor={'white'}
-                            buttonTitle={'Remover trem'}
-                            backgroundColor={'#b8b8b8'}
-                            onClick={() => ButtonTrens.remove()}
-                            />
-                    </RectanglePart>
-                </div>
-            </div>
-                <div className="row mt-3">
-                    <div className="col-6">
-                        <RectanglePart backgroundColor = {'black'}> 
-                            <ButtonInfo
-                                title={'Editar o trem'}
-                                textColor={'white'}
-                                buttonTitle={'Editar trem'}
-                                backgroundColor={'#b8b8b8'}
-                                onClick={() => ButtonTrens.edit()}
-                            />
-                        </RectanglePart>
-                        
-                    </div>
-                    <div className="col-6">
-                        <RectanglePart backgroundColor = {''}> 
-                            <ButtonInfo
-                                title={'Ver trens criados'}
-                                textColor={'black'}
-                                buttonTitle={'Ver trens'}
-                                backgroundColor={'#b8b8b8'}
-                                onClick={() => ButtonTrens.read()}
-                            />
-                        </RectanglePart>
-                        
-                    </div>
-                </div>
-                
+function Trens() {
+  return (
+    <div class='container'>
+      <div className='row mt-3'>
+        <div className='col'>
+          <RectanglePart>
+            <TrensInfo
+              icon={'done'}
+              trem={{nome: "ES43", modelo: "2", condutor: "joao", id: 1 }}
+            />
+          </RectanglePart>
         </div>
-    )
+      </div>
+
+      <div className='row mt-3'>
+        <div className='col'>
+          <button className={`${styles.customButton}`}>Adicionar Trens</button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Trens;

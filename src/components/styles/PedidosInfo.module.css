@@ -8,3 +8,25 @@
   justify-content: center;
   align-items: center;
 }
+
+.iconCircleTrash button {
+  background-color: #f94449;
+  border: 1px solid #b8b8b8;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconCirclePen button {
+  background-color: #2DB83D;
+  border: 1px solid #b8b8b8;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
