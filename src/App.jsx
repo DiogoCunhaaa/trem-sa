@@ -19,6 +19,7 @@ import Rotas from './pages/Rotas';
 import Manutencaocrud from './pages/Manutencaocrud';
 import Notificacoes from './pages/Notificacoes';
 import Relatorioscrud from './pages/Relatorioscrud';
+import PedidosManutencao from './pages/PedidosManutencao';
 
 function App() {
   const location = useLocation();
@@ -38,7 +39,8 @@ function App() {
     '/rotas' : 'Rotas' ,
     '/manutencaocrud' : 'Manutenção' ,
     '/notificacoes' : 'Notificações',
-    '/relatorioscrud' : 'Relatórios'
+    '/relatorioscrud' : 'Relatórios',
+    '/manutencao/pedidos' : 'Pedidos de Manutenção'
   };
 
   const currentTitle = pageTitles[location.pathname] || 'Login';
@@ -160,6 +162,14 @@ function App() {
         />
         <Route path='/loginpage' element={<LoginPage />} />
         <Route path='/cadastropage' element={<CadastroPage />} />
+        <Route
+          path='/manutencao/pedidos'
+          element={
+            <PrivateRoute>
+              <PedidosManutencao />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </>
   );

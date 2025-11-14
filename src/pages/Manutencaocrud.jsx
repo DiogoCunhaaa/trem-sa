@@ -1,8 +1,10 @@
 import RectanglePart from '../components/RectanglePart';
 import ButtonInfo from '../components/infos/ButtonInfo';
 import ButtonManutencao from '../javascript/ButtonManutencao';
+import { useNavigate } from 'react-router-dom';
 
 function Manutencaocrud(){
+    const navigate = useNavigate();
     return(
         <div class="container">
                        <div className="row mt-3">
@@ -24,7 +26,7 @@ function Manutencaocrud(){
                             textColor={'black'}
                             buttonTitle={'Remover pedido'}
                             backgroundColor={'#b8b8b8'}
-                            onClick={() => ButtonManutencao.remove()}
+                            onClick={() => navigate('/manutencao/pedidos')}
                             />
                     </RectanglePart>
                 </div>
@@ -37,7 +39,7 @@ function Manutencaocrud(){
                                 textColor={'white'}
                                 buttonTitle={'Editar pedidos'}
                                 backgroundColor={'#b8b8b8'}
-                                onClick={() => ButtonManutencao.edit()}
+                                onClick={() => navigate('/manutencao/pedidos')}
                             />
                         </RectanglePart>
                         
@@ -49,7 +51,7 @@ function Manutencaocrud(){
                                 textColor={'black'}
                                 buttonTitle={'Ver pedidos'}
                                 backgroundColor={'#b8b8b8'}
-                                onClick={() => ButtonManutencao.read()}
+                                onClick={() => navigate('/manutencao/pedidos')}
                             />
                         </RectanglePart>
                         
