@@ -27,7 +27,7 @@ function parseMensagem(raw){
   }
 }
 
-export default function PedidosManutencao(){
+export default function ManutencaoPedidos(){
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
