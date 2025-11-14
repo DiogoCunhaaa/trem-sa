@@ -69,8 +69,9 @@ function Navbar(props) {
                 <li><a href="/trens">Trens</a></li>
                 <li><a href="/manutencaocrud">Manutenção</a></li>
                 <li><a href="/perfil">Perfil</a></li>
-                 <li><a href="/notificacoes">Notificações</a></li>
-                  <li><a href="/relatorioscrud">Relatórios</a></li>
+                <li><a href="/notificacoes">Notificações</a></li>
+                <li><a href="/relatorioscrud">Relatórios</a></li>
+                <li><a href="/sobre">Sobre Nós</a></li>
               </ul>
             </div>
           </div>
