@@ -7,11 +7,11 @@ function Sobre() {
                 <CardAboutUs>
                     <div className="d-flex flex-row align-items-start gap-4 ps-3">
 
-                        {/* IMAGEM */}
+
                         <div
                             style={{
                                 padding: "4px",
-                                borderRadius: "14px",
+                                borderRadius: "8px",
                                 background: "linear-gradient(135deg,rgb(255, 255, 255),rgb(78, 78, 78))",
                             }}
                         >
@@ -24,17 +24,9 @@ function Sobre() {
                                 style={{ objectFit: "cover" }}
                             />
                         </div>
-
-                        {/* TÍTULO + TEXTO */}
                         <div className="flex-grow-1">
-
-                            {/* Título */}
                             <h3 className="mb-1"><strong>SambaWare Corporation</strong></h3>
-
-                            {/* Linha separadora */}
-                            <hr className="mt-0 mb-3" style={{ borderTop: "2px solid #555", width: "100%" }} />
-
-                            {/* Texto principal */}
+                            <hr className="mt-0 mb-3" style={{ borderTop: "2px solid #555", width: "97" }} />
                             <p className="fs-5">
                                 Nossa equipe é composta por: João, Diogo e Matheus Picolli.
                                 Somos estudantes da escola Sesi de Referência e possuímos 18 anos.
@@ -43,16 +35,10 @@ function Sobre() {
 
                             <p className="fs-6 text-muted">
                                 Nosso projeto é focado no desenvolvimento web e arduino a partir do ferrorama.
-                            </p>
-
+                            </p>  
                         </div>
-
                     </div>
-
                 </CardAboutUs>
-
-
-
             </div>
         </div>
     );
