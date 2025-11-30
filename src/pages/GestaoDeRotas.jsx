@@ -1,6 +1,7 @@
 import WeatherInfo from '../components/infos/WeatherInfo';
 import PedidosInfo from '../components/infos/PedidosInfo';
 import RectanglePart from '../components/RectanglePart';
+import MapaInterativo from '../components/MapaInterativo';
 
 import { DadosColetados } from '../javascript/DadosColetados';
 
@@ -20,8 +21,9 @@ function GestaoDeRotas() {
   return (
     <div className='container'>
       <div className='row mt-3'>
+        <h2 className='mx-4 fw-bold'>Mapa Interativo</h2>
         <RectanglePart>
-          <WeatherInfo />
+          <MapaInterativo />
         </RectanglePart>
       </div>
 
