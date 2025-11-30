@@ -1,4 +1,3 @@
-import WeatherInfo from '../components/infos/WeatherInfo';
 import PedidosInfo from '../components/infos/PedidosInfo';
 import RectanglePart from '../components/RectanglePart';
 import MapaInterativo from '../components/MapaInterativo';
