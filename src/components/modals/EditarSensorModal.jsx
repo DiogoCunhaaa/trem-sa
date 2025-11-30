@@ -3,7 +3,35 @@ import styles from '../cadastro/ForgotPasswordModal.module.css';
 import { motion } from 'framer-motion';
 
 export default function EditarSensorModal({ show, onClose, onConfirm }) {
+  const [idSensor, setIdSensor] = useState('');
+  const [tipoSensor, setTipoSensor] = useState('');
+  const [valorSensor, setValorSensor] = useState('');
   if (!show) return null;
+
+  async function editarSensor() {
+    try {
+      const API_URL = 'http://localhost:3333';
+
+      const res = await fetch(`${API_URL}/api/sensors/edit`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: idSensor,
+          tipo_sensor: tipoSensor,
+          valor_sensor: valorSensor,
+        }),
+      });
+
+      const resultado = await res.json();
+
+      if (res.ok) {
+        alert(resultado.message || 'Sensor editado com sucesso');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Erro ao conectar com o servidor.');
+    }
+  }
 
   return (
     <div
@@ -45,16 +73,19 @@ export default function EditarSensorModal({ show, onClose, onConfirm }) {
             className={`${styles.customInput} text-center w-100`}
             type='number'
             placeholder='ID do Sensor'
+            onChange={(e) => setIdSensor(e.target.value)}
           />
           <input
             className={`${styles.customInput} text-center w-100`}
             type='text'
             placeholder='Novo Tipo'
+            onChange={(e) => setTipoSensor(e.target.value)}
           />
           <input
             className={`${styles.customInput} text-center w-100`}
             type='number'
             placeholder='Novo Valor'
+            onChange={(e) => setValorSensor(e.target.value)}
           />
         </div>
 
@@ -68,7 +99,10 @@ export default function EditarSensorModal({ show, onClose, onConfirm }) {
           <button
             className={`custom-button ${styles.customButton}`}
             style={{ backgroundColor: '#000000', color: '#ffffff' }}
-            onClick={onConfirm}
+            onClick={async () => {
+              await editarSensor();
+              onConfirm();
+            }}
           >
             Confirmar
           </button>
