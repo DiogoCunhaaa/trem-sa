@@ -12,25 +12,20 @@ function SensoresInfo({ icon, item }) {
         <div className={`${styles.iconCircle} me-3`}>
           <i className={`bi ${iconClass}`}></i>
         </div>
-        <strong className={`fw-bold fs-4`}>{item.nome}</strong>
+        <strong className={`fw-bold fs-4`}>{item.tipo_sensor}</strong>
       </div>
 
       <div className='d-flex align-items-center gap-4'>
         <div className='text-center'>
-          <span className='d-block fw-bold small'>TIPO</span>
-          <span>{item.tipo}</span>
-        </div>
-
-        <div className='text-center'>
-          <span className='d-block fw-bold small'>HORA</span>
-          <span>{item.horario}</span>
+          <span className='d-block fw-bold small'>ID</span>
+          <span>{item.id_sensor}</span>
         </div>
       </div>
 
       <div>
         <div className='text-center me-4'>
           <span className='d-block fw-bold small'>VALOR</span>
-          <span>{item.valor}</span>
+          <span>{item.valor_sensor}</span>
         </div>
       </div>
     </div>

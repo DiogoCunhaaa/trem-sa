@@ -14,17 +14,17 @@ function PedidosInfo({ trem }) {
         <div className={`${styles.iconCircle} me-3`}>
           <i className={`bi bi-train-front`}></i>
         </div>
-        <strong className={`fw-bold fs-2`}>{trem.nome}</strong>
+        <strong className={`fw-bold fs-2`}>{trem.modelo_trem}</strong>
       </div>
 
       <div className='d-flex align-items-center gap-4'>
         <div className='text-center'>
-          <span className='d-block fw-bold small'>CONDUTOR</span>
-          <span>{trem.condutor}</span>
+          <span className='d-block fw-bold small'>ID CONDUTOR</span>
+          <span className='fw-bold'>{trem.id_usuario}</span>
         </div>
         <div className='text-center'>
           <span className='d-block fw-bold small'>ID</span>
-          <span className='fw-bold'>{trem.id}</span>
+          <span className='fw-bold'>{trem.id_trem}</span>
         </div>
       </div>
 
