@@ -8,7 +8,7 @@ export default function ExluirTrensModal({ show, onClose, onConfirm, trem_id }) 
     try {
       const API_URL = 'http://localhost:3333';
 
-      const res = await fetch(`${API_URL}/api/trains/delete:${trem_id}`, {
+      const res = await fetch(`${API_URL}/api/trains/delete/${trem_id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
       });

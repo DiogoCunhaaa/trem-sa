@@ -4,7 +4,7 @@ import styles from '../styles/PedidosInfo.module.css';
 import EditarTrensModal from '../modals/EditarTrensModal';
 import ExcluirTrensModal from '../modals/ExcluirTrensModal';
 
-function PedidosInfo({ trem }) {
+function PedidosInfo({ trem, onUpdate }) {
   const [showModalEditarTrens, setShowModalEditarTrens] = useState(false);
   const [showModalExcluirTrens, setShowModalExcluirTrens] = useState(false);
 
@@ -47,21 +47,22 @@ function PedidosInfo({ trem }) {
       </div>
 
       <EditarTrensModal
-        trem_id={trem.id}
+        trem_id={trem.id_trem}
         show={showModalEditarTrens}
         onClose={() => setShowModalEditarTrens(false)}
         onConfirm={() => {
-          console.log('Trem Editado');
           setShowModalEditarTrens(false);
+          onUpdate();
         }}
       />
 
       <ExcluirTrensModal
+        trem_id={trem.id_trem}
         show={showModalExcluirTrens}
         onClose={() => setShowModalExcluirTrens(false)}
         onConfirm={() => {
-          console.log('Trem Exluido');
           setShowModalExcluirTrens(false);
+          onUpdate();
         }}
       />
     </div>

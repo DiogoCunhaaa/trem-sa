@@ -40,7 +40,7 @@ function Trens() {
         <div key={trem.id_trem} className='row mt-3'>
           <div className='col'>
             <RectanglePart>
-              <TrensInfo icon={'train'} trem={trem} />
+              <TrensInfo icon={'train'} trem={trem} onUpdate={carregarTrens}/>
             </RectanglePart>
           </div>
         </div>
