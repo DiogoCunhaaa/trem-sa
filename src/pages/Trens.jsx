@@ -17,7 +17,7 @@ function Trens() {
       const dados = await res.json();
 
       if (res.ok) {
-        setTrens(dados);
+        setTrens(dados.trens || []);
       }
 
       return dados;
@@ -30,6 +30,8 @@ function Trens() {
   useEffect(() => {
     carregarTrens();
   }, []);
+
+  console.log(trens);
 
   return (
     <div className='container'>

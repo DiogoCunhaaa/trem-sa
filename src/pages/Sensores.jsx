@@ -3,27 +3,34 @@ import SensoresInfo from '../components/infos/SensoresInfo';
 import PedidosInfo from '../components/infos/PedidosInfo';
 import ButtonSensores from '../javascript/ButtonManutencao';
 import ButtonInfo from '../components/infos/ButtonInfo';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DadosColetados } from '../javascript/DadosColetados';
+import CriarSensorModal from '../components/modals/CriarSensorModal';
 
 function Sensores() {
-  const [showInput, setShowInput] = useState(false);
-  const [value, setValue] = useState('');
+  const [showModalCriarSensores, setShowModalCriarSensores] = useState(false);
+  const [sensores, setSensores] = useState([]);
 
-  const sensores = [
-    { nome: 'Luminosidade', tipo: 'luz', horario: '3', valor: '300' },
-    { nome: 'Temperatura', tipo: 'luz', horario: '3', valor: '29.7' },
-    { nome: 'Luminosidade', tipo: 'luz', horario: '3', valor: '300' },
-    { nome: 'Luminosidade', tipo: 'luz', horario: '3', valor: '300' },
-  ];
+  async function carregarSensores() {
+    try {
+      const API_URL = 'http://localhost:3333';
 
-  const handleClick = () => setShowInput('showInput');
+      const res = await fetch(`${API_URL}/api/sensors/`);
+      const dados = await res.json();
 
-  //const handleConfirm = () => {
-  //    if (onConfirm) onConfirm(value);
-  //    setValue('');
-  //    setShowInput(false);
-  //}
+      if (res.ok) {
+        setSensores(dados);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Erro ao conectar com o servidor.');
+    }
+  }
+
+  useEffect(() => {
+    carregarSensores();
+  }, []);
+
   return (
     <div className='container'>
       <div className='row mt-3'>
@@ -34,7 +41,7 @@ function Sensores() {
               textColor={'white'}
               buttonTitle={'Adicionar sensor'}
               backgroundColor={'#b8b8b8'}
-              onClick={() => ButtonSensores.add()}
+              onClick={() => setShowModalCriarSensores(true)}
             />
           </RectanglePart>
         </div>
@@ -76,14 +83,25 @@ function Sensores() {
       </div>
 
       <div className='row mt-3'>
-        {sensores.map((sensor, index) => (
-          <div key={index} className='col-6 mb-3'>
+        {sensores.map((sensor) => (
+          <div key={sensor.id_sensor} className='col-6 mb-3'>
             <RectanglePart>
               <SensoresInfo icon={'done'} item={sensor} />
             </RectanglePart>
           </div>
         ))}
       </div>
+
+      <CriarSensorModal
+        show={showModalCriarSensores}
+        onClose={() => {
+          setShowModalCriarSensores(false);
+        }}
+        onConfirm={() => {
+          setShowModalCriarSensores(false);
+          carregarSensores();
+        }}
+      />
     </div>
   );
 }

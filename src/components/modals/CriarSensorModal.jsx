@@ -2,29 +2,29 @@ import { useState } from 'react';
 import styles from '../cadastro/ForgotPasswordModal.module.css';
 import { motion } from 'framer-motion';
 
-export default function CriarTrensModal({ show, onClose, onConfirm }) {
-  const [modeloTrem, setModeloTrem] = useState('');
-  const [emailUsuario, setEmailUsuario] = useState('');
+export default function CriarSensorModal({ show, onClose, onConfirm }) {
+  const [tipoSensor, setTipoSensor] = useState('');
+  const [valorSensor, setValorSensor] = useState(null);
 
   if (!show) return null;
 
-  async function adicionarTrem() {
+  async function adicionarSensor() {
     try {
       const API_URL = 'http://localhost:3333';
 
-      const res = await fetch(`${API_URL}/api/trains/create`, {
+      const res = await fetch(`${API_URL}/api/sensors/create`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          modelo_trem: modeloTrem,
-          email_usuario: emailUsuario,
+          tipo_sensor: tipoSensor,
+          valor_sensor: valorSensor,
         }),
       });
 
       const resultado = await res.json()
 
       if (res.ok) {
-        alert(resultado.message || 'Trem criado com sucesso');
+        alert(resultado.message || 'Sensor criado com sucesso');
       }
     } catch (err) {
       console.error(err);
@@ -70,14 +70,14 @@ export default function CriarTrensModal({ show, onClose, onConfirm }) {
           <input
             className={`${styles.customInput} text-center w-100`}
             type='text'
-            placeholder='Modelo'
-            onChange={(e) => setModeloTrem(e.target.value)}
+            placeholder='Tipo do Sensor'
+            onChange={(e) => setTipoSensor(e.target.value)}
           />
           <input
             className={`${styles.customInput} text-center w-100`}
-            type='email'
-            placeholder='Email do Condutor'
-            onChange={(e) => setEmailUsuario(e.target.value)}
+            type='number'
+            placeholder='Valor do Sensor'
+            onChange={(e) => setValorSensor(e.target.value)}
           />
         </div>
 
@@ -92,7 +92,7 @@ export default function CriarTrensModal({ show, onClose, onConfirm }) {
             className={`custom-button ${styles.customButton}`}
             style={{ backgroundColor: '#000000', color: '#ffffff' }}
             onClick={async () => {
-              await adicionarTrem();
+              await adicionarSensor();
               onConfirm();
             }}
           >

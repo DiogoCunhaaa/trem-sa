@@ -9,7 +9,7 @@ function Sobre() {
                         <div
                             style={{
                                 padding: "4px",
-                                borderRadius: "14px",
+                                borderRadius: "8px",
                                 background: "linear-gradient(135deg,rgb(255, 255, 255),rgb(78, 78, 78))",
                             }}
                         >
