@@ -20,7 +20,7 @@ function GestaoDeRotas() {
 
   return (
     <div className='container'>
-      <div className='row mt-3'>
+      <div className='row'>
         <h2 className='mx-4 fw-bold'>Mapa Interativo</h2>
         <RectanglePart>
           <MapaInterativo />
