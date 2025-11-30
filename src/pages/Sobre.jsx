@@ -3,11 +3,9 @@ import CardAboutUs from "../components/CardAboutUs";
 function Sobre() {
     return (
         <div className="container">
-            <div className="row mt-3">
+            <div className="row mt-3 mb-3">
                 <CardAboutUs>
-                    <div className="d-flex flex-row align-items-start gap-4 ps-3">
-
-
+                    <div className="d-flex flex-row align-items-start gap-4 ps-3 shadow-lg rounded h-100 pt-3 pb-3">
                         <div
                             style={{
                                 padding: "4px",
@@ -16,26 +14,23 @@ function Sobre() {
                             }}
                         >
                             <img
-                                src="/trio_parada_dura.jpg"
+                                src="/favicon.ico"
                                 className="rounded-3"
                                 alt="icone"
-                                width="300"
-                                height="220"
+                                height="300px"
                                 style={{ objectFit: "cover" }}
                             />
                         </div>
+
                         <div className="flex-grow-1">
                             <h3 className="mb-1"><strong>SambaWare Corporation</strong></h3>
-                            <hr className="mt-0 mb-3" style={{ borderTop: "2px solid #555", width: "97" }} />
+                            <hr className="mt-0 mb-3" style={{ borderTop: "2px solid #555", width: "100%" }} />
                             <p className="fs-5">
-                                Nossa equipe é composta por: João, Diogo e Matheus Picolli.
-                                Somos estudantes da escola Sesi de Referência e possuímos 18 anos.
-                                Atualmente estamos focados em desenvolver esse projeto da SA.
+                                O front-end do nosso projeto foi programado em react, bootstrap, css. Já o back-end foi programado em node express, devido a alta similaridade com javascript e ao node express ser compatível com react. O projeto foi desenvolvido ao longo do ano com foco em desenvolver nossas habilidades na programação e a incentivar nossa auto-busca pelos conhecimentos necessários.
                             </p>
-
                             <p className="fs-6 text-muted">
                                 Nosso projeto é focado no desenvolvimento web e arduino a partir do ferrorama.
-                            </p>  
+                            </p>
                         </div>
                     </div>
                 </CardAboutUs>
