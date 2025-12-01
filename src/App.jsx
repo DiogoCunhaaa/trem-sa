@@ -2,7 +2,6 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/autenticacao/PrivateRoute';
-import { useAuth } from './components/autenticacao/AuthContext';
 
 import GestaoDeRotas from './pages/GestaoDeRotas';
 import Dashboard from './pages/Dashboard';
@@ -16,7 +15,6 @@ import Sensores from './pages/Sensores';
 import Perfil from './pages/Perfil';
 import Trens from './pages/Trens';
 import Rotas from './pages/Rotas';
-import Manutencaocrud from './pages/Manutencaocrud';
 import Notificacoes from './pages/Notificacoes';
 import Relatorioscrud from './pages/Relatorioscrud';
 import Sobre from './pages/Sobre';
@@ -40,7 +38,6 @@ function App() {
     '/perfil' : 'Perfil' ,
     '/trens' : 'Trens' ,
     '/rotas' : 'Rotas' ,
-    '/manutencaocrud' : 'Manutenção' ,
     '/notificacoes' : 'Notificações',
     '/relatorioscrud' : 'Relatórios',
     '/sobre' : 'Sobre',
@@ -145,14 +142,6 @@ function App() {
         element={
           <PrivateRoute>
             <Rotas/>
-          </PrivateRoute>
-        }
-        />
-         <Route
-        path='/manutencaocrud'
-        element={
-          <PrivateRoute>
-            <Manutencaocrud/>
           </PrivateRoute>
         }
         />

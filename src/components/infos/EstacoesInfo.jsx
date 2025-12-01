@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import styles from '../styles/PedidosInfo.module.css';
 import EditarEstacaoModal from '../modals/EditarEstacaoModal';
-// import ExcluirEstacaoModal from '../modals/ExcluirEstacaoModal';
+import ExcluirEstacaoModal from '../modals/ExcluirEstacaoModal';
 
 function EstacaoInfo({ estacao, onUpdate }) {
   const [showModalEditarEstacao, setShowModalEditarEstacao] = useState(false);
@@ -56,15 +56,15 @@ function EstacaoInfo({ estacao, onUpdate }) {
         }}
       />
 
-      {/* <ExcluirEstacaoModal
-        trem_id={trem.id_trem}
+      <ExcluirEstacaoModal
+        estacao_id={estacao.id_estacao}
         show={showModalExcluirEstacao}
         onClose={() => setShowModalExcluirEstacao(false)}
         onConfirm={() => {
           setShowModalExcluirEstacao(false);
           onUpdate();
         }}
-      /> */}
+      />
     </div>
   );
 }

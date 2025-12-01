@@ -16,7 +16,7 @@ function Trens() {
 
       const res = await fetch(`${API_URL}/api/stations/`);
       const dados = await res.json();
-      
+
       if (res.ok) {
         setEstacoes(dados.estacoes || []);
       }
