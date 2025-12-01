@@ -3,10 +3,9 @@
 .square {
     padding: 1rem;
     border-radius: 10px;
-    min-height: 180px; 
+    min-height: 180px;
     background-color: #d9d9d9;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-
+}

@@ -18,6 +18,12 @@ function Trens() {
 
       if (res.ok) {
         setTrens(dados.trens || []);
+        
+        // Atualizar localStorage para o dashboard
+        localStorage.setItem('lastActivity', JSON.stringify({
+          timestamp: new Date().toISOString(),
+          type: 'trem_update'
+        }));
       }
 
       return dados;

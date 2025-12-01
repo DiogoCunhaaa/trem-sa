@@ -25,6 +25,12 @@ function Sensores() {
 
       if (res.ok) {
         setSensores(dados);
+        
+        // Atualizar localStorage para o dashboard
+        localStorage.setItem('lastActivity', JSON.stringify({
+          timestamp: new Date().toISOString(),
+          type: 'sensor_update'
+        }));
       }
     } catch (err) {
       console.error(err);
@@ -111,7 +117,6 @@ function Sensores() {
       />
 
       <ExcluirSensorModal
-        // sensor_id={}
         show={showModalExcluirSensores}
         onClose={() => {
           setShowModalExcluirSensores(false);
