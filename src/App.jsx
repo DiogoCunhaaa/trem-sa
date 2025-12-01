@@ -21,6 +21,7 @@ import Notificacoes from './pages/Notificacoes';
 import Relatorioscrud from './pages/Relatorioscrud';
 import Sobre from './pages/Sobre';
 import ManutencaoPedidos from './pages/ManutencaoPedidos';
+import EstacoesTrens from './pages/EstacoesTrens';
 
 
 function App() {
@@ -43,7 +44,8 @@ function App() {
     '/notificacoes' : 'Notificações',
     '/relatorioscrud' : 'Relatórios',
     '/sobre' : 'Sobre',
-    '/manutencaopedidos' :'Manutenção Pedidos'
+    '/manutencaopedidos' : 'Manutenção Pedidos',
+    '/estacoes': 'Estações',
   };
 
   const currentTitle = pageTitles[location.pathname] || 'Login';
@@ -68,6 +70,14 @@ function App() {
           element={
             <PrivateRoute>
               <GestaoDeRotas />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/estacoes'
+          element={
+            <PrivateRoute>
+              <EstacoesTrens />
             </PrivateRoute>
           }
         />
